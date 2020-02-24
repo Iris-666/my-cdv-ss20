@@ -35,6 +35,12 @@
   color: #BDC0BA;
 
 }
+#viz{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+}
 
 body{
   background-color: #ecdfc8;

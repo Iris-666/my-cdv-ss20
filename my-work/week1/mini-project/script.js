@@ -268,45 +268,66 @@ for(let i = 0; i < transformedData.length; i++){
   let bar = document.createElement("div");
   bar.className="bar";
   bar.style.width = datapoint.average*130 + "px";
+  let barnamediv = document.createElement('div');
   let barname = document.createElement('p');
   barname.innerHTML = datapoint.name + "    " + datapoint.average;
+
+  // let barname = document.createElement('p');
+  // barname.innerHTML = datapoint.name + "    " + datapoint.average;
   barname.className = 'barname'
-  bar.appendChild(barname);
+  barnamediv.appendChild(barname);
   //give each bar different colors
   if(i == 0){
     bar.style.backgroundColor = 'black'
+    barname.style.color = 'black'
   }
   if(i == 1){
     bar.style.backgroundColor = 'white'
+    barname.style.color = 'white'
   }
   if(i == 2){
     bar.style.backgroundColor = '#2EA9DF'
+    barname.style.color = '#2EA9DF'
   }
   if(i == 3){
     bar.style.backgroundColor = '#F596AA'
+    barname.style.color = '#F596AA'
   }
   if(i == 4){
     bar.style.backgroundColor = '#CB1B45'
+    barname.style.color = '#CB1B45'
   }
   if(i == 5){
     bar.style.backgroundColor = '#77428D'
+    barname.style.color = '#77428D'
   }
   if(i == 6){
     bar.style.backgroundColor = '#516E41'
+    barname.style.color = '#516E41'
+
   }
   if(i == 7){
     bar.style.backgroundColor = '#FB9966'
+    barname.style.color = '#FB9966'
+
   }
   if(i == 8){
     bar.style.backgroundColor = 'grey'
+    barname.style.color = 'grey'
+
   }
   if(i == 9){
     bar.style.backgroundColor = '#7D532C'
+    barname.style.color = '#7D532C'
+
   }
   if(i == 10){
     bar.style.backgroundColor = '#FAD689'
+    barname.style.color = '#FAD689'
+
   }
 
-
   document.getElementById("viz").appendChild(bar);
+  document.getElementById("viz").appendChild(barnamediv);
+
 }
