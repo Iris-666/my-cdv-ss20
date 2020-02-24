@@ -29,9 +29,10 @@
 .barname{
   margin-left: 10px;
   padding-left: 5px;
-  font-family: fantasy;
+  padding-top: 25px;
+  font-family: 'Pangolin';
   font-weight: bold;
-  font-size: 25px;
+  font-size: 30px;
   color: #BDC0BA;
 
 }
