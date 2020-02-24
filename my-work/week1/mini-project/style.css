@@ -1,0 +1,41 @@
+/* * {
+  padding-left: 5px;
+  color: #BDC0BA;
+  font-size: 25px;
+  font-family: fantasy;
+} */
+
+.bar{
+  height:100px;
+  width:200px;
+  /* background-color: #ecb390; */
+  margin-top:30px;
+  margin-bottom: 30px;
+  /* padding: 10px; */
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title{
+  text-align: center;;
+  font-family: fantasy;
+  color:#df7861;
+  font-size: 50px;
+}
+
+
+.barname{
+  margin-left: 10px;
+  padding-left: 5px;
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 25px;
+  color: #BDC0BA;
+
+}
+
+body{
+  background-color: #ecdfc8;
+}
