@@ -6,6 +6,7 @@ function createCat(){
     var ul = document.createElement('ul'); //create new cats
     ul.className += "flex-item";
     document.getElementById('flex').appendChild(ul);//add the cat to parent list
+
   }
 
 }

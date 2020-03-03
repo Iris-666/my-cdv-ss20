@@ -272,8 +272,6 @@ for(let i = 0; i < transformedData.length; i++){
   let barname = document.createElement('p');
   barname.innerHTML = datapoint.name + "    " + datapoint.average;
 
-  // let barname = document.createElement('p');
-  // barname.innerHTML = datapoint.name + "    " + datapoint.average;
   barname.className = 'barname'
   barnamediv.appendChild(barname);
   //give each bar different colors
