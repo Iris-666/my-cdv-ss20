@@ -1,9 +1,9 @@
 console.log('js loaded');
 
-let viz = d3.select('#viz-container')
+let viz = d3.select('#container')
 .append('svg')
 .attr('id','viz')
-.attr('width',2000)
+.attr('width',2400)
 .attr('height',820)
 ;
 
@@ -110,10 +110,31 @@ function color(datapoint){
   else{
     return 'rgb(215,196,187)'
   }
+}
 
 
+function note2Color(datapoint){
+  if(datapoint.howManyBirds == "1"){
+    return 'transparent'
+  }else{
+    return 'black';
+  }
+}
 
+function note3Color(datapoint){
+  if(datapoint.howManyBirds == "1" || datapoint.howManyBirds == "2"){
+    return 'transparent'
+  }else{
+    return 'black'
+  }
+}
 
+function note4Color(datapoint){
+  if(datapoint.howManyBirds == "more that I can't tell"){
+    return 'black';
+  }else{
+    return 'transparent';
+  }
 }
 
 function weather(datapoint){
@@ -208,7 +229,7 @@ function gotData(incomingData){
   console.log('minimumDate: '+minimumDate);
   console.log('maximumDate: '+maximumDate);
 
-  let dateScale = d3.scaleTime().domain([minimumDate,maximumDate]).range([100,700])
+  let dateScale = d3.scaleTime().domain([minimumDate,maximumDate]).range([50,700])
 
   function getTimeForMin(datapoint){
     // console.log('datapoint.whatTimeIsIt'+datapoint.whatTimeIsIt);
@@ -218,7 +239,7 @@ function gotData(incomingData){
   let maximumTime = d3.max(transformedTime, getTimeForMin);
   // console.log('minimumTime'+minimumTime);
   // console.log('maximumTime'+maximumTime);
-  let timeScale = d3.scaleTime().domain([minimumTime,maximumTime]).range([100,1800])
+  let timeScale = d3.scaleTime().domain([minimumTime,maximumTime]).range([50,2250])
 
   function positionGroup(d,i){
 
@@ -243,7 +264,7 @@ function gotData(incomingData){
 
 
   let eye =  datagroups.append('circle')
-  .attr('cx',20)
+  .attr('cx',23)
   .attr('cy',15)
   .attr('stroke','black')
   .attr('r',2)
@@ -256,6 +277,10 @@ function gotData(incomingData){
   .attr('stroke-width',1)
   // .attr('transform',positionGroup)
 
+
+
+
+
 function positionLine(d,i){
   let y1 = dateScale(d.date)
   y1 = y1+54;
@@ -265,14 +290,76 @@ function positionLine(d,i){
 
   viz.selectAll('line').data(incomingData).enter()
   .append('line')
-  .attr('x1',10)
+  .attr('x1',30)
   .attr('y1',0)
-  .attr('x2',1900)
+  .attr('x2',2370)
   .attr('y2',0)
   .attr('stroke','black')
   .attr('stroke-width',0.5)
   .attr('transform',positionLine)
 
   datagroups.attr('transform',positionGroup)
+
+  let note1 = datagroups.append('path')
+    .attr('d',"M9.74,24.48a4.55,4.55,0,0,1-.22,3c-1,2.31-3.78,2.62-4.17,2.66-1.74.18-4.5-.4-5.2-2.45-.76-2.23,1.36-4.66,3.25-5.59a4.77,4.77,0,0,1,4.29-.2A4.4,4.4,0,0,1,9.74,24.48Z" )
+    .attr('transform','translate(-5,-35)')
+    .attr('fill','black')
+    .attr('stroke','black')
+
+  let noteLine1 = datagroups.append('line')
+    .attr('x1',5)
+    .attr('y1',-10)
+    .attr('x2',5)
+    .attr('y2',-35)
+    .attr('stroke','black')
+
+  let note2 = datagroups.append('path')
+    .attr('d',"M9.74,24.48a4.55,4.55,0,0,1-.22,3c-1,2.31-3.78,2.62-4.17,2.66-1.74.18-4.5-.4-5.2-2.45-.76-2.23,1.36-4.66,3.25-5.59a4.77,4.77,0,0,1,4.29-.2A4.4,4.4,0,0,1,9.74,24.48Z"  )
+    .attr('transform','translate(15,-39)')
+    .attr('fill',note2Color)      .attr('stroke',note2Color)
+
+  let note2Line = datagroups.append('line')
+    .attr('x1',5)
+    .attr('y1',-10)
+    .attr('x2',5)
+    .attr('y2',-35)
+    .attr('stroke',note2Color)
+    .attr('transform','translate(20,-4)')
+
+  let note2Line2 = datagroups.append('line')
+    .attr('x1',5)
+    .attr('y1',-35)
+    .attr('x2',25)
+    .attr('y2',-39)
+    .attr('stroke',note2Color)
+
+  let note3Line = datagroups.append('line')
+    .attr('x1',5)
+    .attr('y1',-30)
+    .attr('x2',25)
+    .attr('y2',-34)
+    .attr('stroke-width','3')
+    .attr('stroke',note3Color)
+
+  let note4 = datagroups.append('path')
+    .attr('d',"M9.74,24.48a4.55,4.55,0,0,1-.22,3c-1,2.31-3.78,2.62-4.17,2.66-1.74.18-4.5-.4-5.2-2.45-.76-2.23,1.36-4.66,3.25-5.59a4.77,4.77,0,0,1,4.29-.2A4.4,4.4,0,0,1,9.74,24.48Z"  )
+    .attr('transform','translate(35,-39)')
+    .attr('fill',note4Color)
+    .attr('stroke',note4Color)
+
+  let note4Line = datagroups.append('line')
+    .attr('x1',5)
+    .attr('y1',-10)
+    .attr('x2',5)
+    .attr('y2',-35)
+    .attr('stroke',note4Color)
+    .attr('transform','translate(40,-4)')
+
+  let note4Line2 = datagroups.append('path')
+    .attr('d',"M13.46,15.58c1.07-2.44,2.16-6.07.84-9a22.1,22.1,0,0,0-1.17-2.13A28.08,28.08,0,0,0,9.84,0"  )
+    .attr('transform','translate(35,-39)')
+    .attr('fill','transparent')
+    .attr('stroke',note4Color)
+
 
 }
