@@ -175,9 +175,6 @@ function y1(datapoint){
   }
 }
 
-// function positionGroup(datapoint){
-//   return "translate("+xLocation(datapoint)+','+yLocation(datapoint)+')'
-// }
 
 
 function getTime(datapoint){
