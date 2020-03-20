@@ -7,6 +7,14 @@ let viz = d3.select('#container')
 .attr('height',820)
 ;
 
+let image = viz
+  .append('image')
+  .attr('xlink:href','middle-background.png')
+  .attr('width',2400)
+  .attr('height',800)
+  ;
+
+
 d3.json('data.json').then(gotData);
 
 

@@ -1,5 +1,16 @@
 [
     {
+        "timestamp": "2020-02-23T09:04:25.000Z",
+        "date": "2020-02-23T16:00:00.000Z",
+        "whatTimeIsIt": "1899-12-30T06:06:17.000Z",
+        "howManyBirds": 1,
+        "howLongDidTheSoundLast": "1m",
+        "canISeeItOrThem": "No",
+        "whereAmI": "dining room",
+        "weather": "sunny",
+        "sound": 1
+    },
+    {
         "timestamp": "2020-02-24T09:05:24.895Z",
         "date": "2020-02-23T16:00:00.000Z",
         "whatTimeIsIt": "1899-12-30T08:36:17.000Z",
@@ -31,6 +42,28 @@
         "whereAmI": "dining room",
         "weather": "sunny",
         "sound": 2
+    },
+    {
+        "timestamp": "2020-02-24T05:35:25.000Z",
+        "date": "2020-02-24T16:00:00.000Z",
+        "whatTimeIsIt": "1899-12-30T03:58:17.000Z",
+        "howManyBirds": 2,
+        "howLongDidTheSoundLast": "2m",
+        "canISeeItOrThem": "No",
+        "whereAmI": "dining room",
+        "weather": "sunny",
+        "sound": 12
+    },
+    {
+        "timestamp": "2020-02-25T05:35:55.000Z",
+        "date": "2020-02-24T16:00:00.000Z",
+        "whatTimeIsIt": "1899-12-30T04:49:17.000Z",
+        "howManyBirds": 1,
+        "howLongDidTheSoundLast": "1m",
+        "canISeeItOrThem": "Yes",
+        "whereAmI": "my balcony",
+        "weather": "sunny",
+        "sound": 3
     },
     {
         "timestamp": "2020-02-25T05:36:22.703Z",
@@ -108,6 +141,39 @@
         "whereAmI": "garden",
         "weather": "cloudy",
         "sound": 1
+    },
+    {
+        "timestamp": "2020-02-26T03:11:01.000Z",
+        "date": "2020-02-25T16:00:00.000Z",
+        "whatTimeIsIt": "1899-12-30T02:37:17.000Z",
+        "howManyBirds": 1,
+        "howLongDidTheSoundLast": "1m",
+        "canISeeItOrThem": "No",
+        "whereAmI": "my bedroom",
+        "weather": "cloudy",
+        "sound": 1
+    },
+    {
+        "timestamp": "2020-02-26T03:11:41.000Z",
+        "date": "2020-02-25T16:00:00.000Z",
+        "whatTimeIsIt": "1899-12-30T03:05:17.000Z",
+        "howManyBirds": 3,
+        "howLongDidTheSoundLast": "3m",
+        "canISeeItOrThem": "No",
+        "whereAmI": "dining room",
+        "weather": "cloudy",
+        "sound": 14
+    },
+    {
+        "timestamp": "2020-02-26T05:21:41.000Z",
+        "date": "2020-02-25T16:00:00.000Z",
+        "whatTimeIsIt": "1899-12-30T04:55:17.000Z",
+        "howManyBirds": 1,
+        "howLongDidTheSoundLast": "1m",
+        "canISeeItOrThem": "No",
+        "whereAmI": "my balcony",
+        "weather": "cloudy",
+        "sound": 2
     },
     {
         "timestamp": "2020-02-26T08:58:30.000Z",
