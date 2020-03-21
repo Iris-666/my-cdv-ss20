@@ -154,7 +154,9 @@ function weather(datapoint){
     return 'M14.89,40.05c4.74,7.56,14,13.79,24.76,12.84,11.54-1,18.08-9.72,19.11-11.14,36.79,4.15,46,4,46.14,2.78.26-1.88-20.72-4.62-45.7-20.32-4.93-3.11-9.63-6.6-9.65-6.61h0l.65.48A17.47,17.47,0,0,0,47,6.53,17.7,17.7,0,0,0,37.14,0,21.06,21.06,0,0,0,21.23,2.12a21.27,21.27,0,0,0-9.54,12.44l-12.8-2.22,10.72,7.2L-2.46,23.38l13.23,1.17A27.87,27.87,0,0,0,14.89,40.05Z';
   }
   if(datapoint.weather == 'rainy'){
-    return 'M12.67,29.2C15.5,45.68,27.85,56.47,39.75,55.55c11.51-.89,18.23-12.41,19-13.8,36.79,4.15,46,4,46.14,2.78.26-1.88-20.72-4.62-45.7-20.32a148.82,148.82,0,0,1-12.54-8.82C45,7.91,40,2,33.69.44,25.39-1.67,16,4,12.67,14.14A26.24,26.24,0,0,1,8,17.5C3.66,20-.06,20.36,0,21s4.78-.3,8.64,2.51A12.25,12.25,0,0,1,12.67,29.2';
+    // return 'M12.67,29.2C15.5,45.68,27.85,56.47,39.75,55.55c11.51-.89,18.23-12.41,19-13.8,36.79,4.15,46,4,46.14,2.78.26-1.88-20.72-4.62-45.7-20.32a148.82,148.82,0,0,1-12.54-8.82C45,7.91,40,2,33.69.44,25.39-1.67,16,4,12.67,14.14A26.24,26.24,0,0,1,8,17.5C3.66,20-.06,20.36,0,21s4.78-.3,8.64,2.51A12.25,12.25,0,0,1,12.67,29.2';
+    return 'M14.89,40.05c4.74,7.56,14,13.79,24.76,12.84,11.54-1,18.08-9.72,19.11-11.14,36.79,4.15,46,4,46.14,2.78.26-1.88-20.72-4.62-45.7-20.32-4.93-3.11-9.63-6.6-9.65-6.61h0l.65.48A17.47,17.47,0,0,0,47,6.53,17.7,17.7,0,0,0,37.14,0,21.06,21.06,0,0,0,21.23,2.12a21.27,21.27,0,0,0-9.54,12.44l-12.8-2.22,10.72,7.2L-2.46,23.38l13.23,1.17A27.87,27.87,0,0,0,14.89,40.05Z';
+
   }
 
 }
@@ -183,7 +185,30 @@ function y1(datapoint){
   }
 }
 
+function circleEye(datapoint){
+  if(datapoint.weather == 'sunny'){
+    return 'black'
+  }
+  if(datapoint.weather == 'cloudy'){
+    return 'black';
+  }
+  if(datapoint.weather == 'rainy'){
+    return 'transparent'
+  }
+}
 
+function lineEye(datapoint){
+  if(datapoint.weather == 'sunny'){
+    return 'transparent'
+  }
+  if(datapoint.weather == 'cloudy'){
+    return 'transparent';
+  }
+  if(datapoint.weather == 'rainy'){
+    return 'black'
+  }
+
+}
 
 function getTime(datapoint){
   // console.log(datapoint.whatTimeIsIt);
@@ -268,12 +293,7 @@ function gotData(incomingData){
 
 
 
-  let eye =  datagroups.append('circle')
-  .attr('cx',23)
-  .attr('cy',15)
-  .attr('stroke','black')
-  .attr('r',2)
-  // .attr('transform',positionGroup);
+
 
   let birdWing =  datagroups.append('path')
   .attr('d',"M25.33,30.27A17.1,17.1,0,0,1,40,32,17.07,17.07,0,0,1,47.26,44.1a17.1,17.1,0,0,1-16.94-3.38A16.61,16.61,0,0,1,25.33,30.27Z")
@@ -365,6 +385,22 @@ function positionLine(d,i){
     .attr('transform','translate(35,-39)')
     .attr('fill','transparent')
     .attr('stroke',note4Color)
+
+    let eye1 =  datagroups.append('circle')
+    .attr('cx',23)
+    .attr('cy',15)
+    .attr('stroke',circleEye)
+    .attr('fill',circleEye)
+    .attr('r',2)
+    // .attr('transform',positionGroup);
+    let eye2 =  datagroups.append('line')
+    .attr('x1',20)
+    .attr('y1',15)
+    .attr('x2',26)
+    .attr('y2',15)
+    .attr('stroke',lineEye)
+    .attr('stroke-width',2)
+
 
 
 }
