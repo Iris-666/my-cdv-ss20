@@ -46,7 +46,7 @@ function gotData(incomingData){
   });
   console.log("popExtent", popExtent);
   // you may use this scale to define a radius for the circles
-  let rScale = d3.scaleLinear().domain(popExtent).range([5, 50]);
+  let rScale = d3.scaleLinear().domain(popExtent).range([5, 90]);
 
 
 
@@ -115,7 +115,7 @@ function gotData(incomingData){
     function getRadius(d, i){
       if(d.Country == 'China'){
       console.log(d.Country+rScale(d.pop));}
-      return rScale(d.pop)
+      return rScale(d.pop);
     }
 
     function getColor(d, i){
@@ -164,7 +164,11 @@ function gotData(incomingData){
     // take care of updating elements
 
     datagroups.transition().duration(500).attr('transform',getGroupLocation);
-    datagroups.selectAll('circle').attr('r',getRadius)
+    datagroups.select('circle').attr('r',getRadius)
+    // datagroups.append('circle')
+    //   .attr('r',getRadius)
+    //   .attr('fill',getColor);
+
 
 
 
