@@ -370,25 +370,19 @@ function add(){
   enteringDataGroups.attr("transform", function(d, i){
     return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
   });
-  // then append rectangles to them and position/size them:
+
   enteringDataGroups
     .append("rect")
     .transition()
     .delay(500)
     .duration(1000)
       .attr("width", function(){
-        // the scaleBand we are using
-        // allows us to as how thick each band is:
         return xScale.bandwidth();
       })
       .attr("height", function(d, i){
-        // the idea is that we make the bar
-        // as high as dictated by the value...
         return yScale(d.value);
       })
       .attr("y", function(d,i){
-        // ...and then push the bar up since it
-        // is drawn from top to bottom
         return -yScale(d.value);
       })
       .attr("fill", "#F596AA")
@@ -437,8 +431,6 @@ exitingElements.select('rect')
   .attr('y',function(d, i){
     return 0
   })
-
-
 
   exitingElements.transition().delay(2000).remove();
   elementsForPage.select("rect")
@@ -498,31 +490,24 @@ function removeAndAdd(){
    return yScale(d.value);
  })
 ;
-// console.log("enteringElements",enteringElements);
 enteringDataGroups = enteringElements.append("g").classed("datapoint", true);
 
 enteringDataGroups.attr("transform", function(d, i){
   return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
 });
-// then append rectangles to them and position/size them:
+
 enteringDataGroups
   .append("rect")
   .transition()
   .delay(500)
   .duration(1000)
     .attr("width", function(){
-      // the scaleBand we are using
-      // allows us to as how thick each band is:
       return xScale.bandwidth();
     })
     .attr("height", function(d, i){
-      // the idea is that we make the bar
-      // as high as dictated by the value...
       return yScale(d.value);
     })
     .attr("y", function(d,i){
-      // ...and then push the bar up since it
-      // is drawn from top to bottom
       return -yScale(d.value);
     })
     .attr("fill", "black")
