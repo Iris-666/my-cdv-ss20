@@ -98,7 +98,7 @@ function assignKeys(d, i){
   return d.key;
 }
 
-let elementsForPage = graphGroup.selectAll(".datapoint").data(data);
+let elementsForPage = graphGroup.selectAll(".datapoint").data(data, assignKeys);
 // note, we do not use ".enter()" for now. let's have a close look
 // at just this (the situation) for now
 // as we have learned, D3 did some kind of calculation here, some weighing
@@ -320,53 +320,14 @@ incomingDataGroups
     .attr("fill", "black")
  ;
 
-function update(){
-  elementsForPage = graphGroup.selectAll(".datapoint").data(data);
-  // console.log(elementsForPage);
-  enteringElements = elementsForPage.enter();
-  exitingElements = elementsForPage.exit();
-  allNames = data.map(function(d){return d.key});
-  xScale.domain(allNames);
-
-  xAxis = d3.axisBottom(xScale);
-  xAxis.tickFormat(d=>{return data.filter(dd=>dd.key==d)[0].name;});
-  xAxisGroup.selectAll("line").remove();
-  xAxisGroup.transition().delay(200).call(xAxis).selectAll("text").attr("font-size", 18);
-  xAxisGroup.selectAll("line").remove();
-
-
-  yMax = d3.max(data, function(d){return d.value});
-  yDomain = [0, yMax+yMax*0.1];
-  yScale.domain(yDomain);
-
-  elementsForPage.transition().duration(1000).attr("transform", function(d, i){
-    return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
-  });
-  elementsForPage.select("rect")
-   .transition()
-   .delay(1000)
-   .duration(200)
-   .attr("width", function(){
-      return xScale.bandwidth();
-   })
-   .attr("y", function(d,i){
-     return -yScale(d.value);
-   })
-   .attr("height", function(d, i){
-     return yScale(d.value);
-   })
-  ;
-
-
-}
 
 // binding functions to the buttons on the page
 // the functions we use to do the actual work are defined in dataManager.js
 function add(){
   addDatapoints(1);
   console.log('adddata',data);
-  // console.log("elementsForPage",elementsForPage);
-  elementsForPage = graphGroup.selectAll(".datapoint").data(data);
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data,assignKeys);
+
   enteringElements = elementsForPage.enter();
 
   allNames = data.map(function(d){return d.key});
@@ -428,7 +389,11 @@ function add(){
         // is drawn from top to bottom
         return -yScale(d.value);
       })
+      .attr("fill", "#F596AA")
+      .transition()
       .attr("fill", "black")
+
+
   ;
 
 
@@ -437,7 +402,66 @@ document.getElementById("buttonA").addEventListener("click", add);
 
 function remove(){
   removeDatapoints(1);
-  elementsForPage = graphGroup.selectAll(".datapoint").data(data);
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data,assignKeys);
+
+  exitingElements = elementsForPage.exit();
+
+  allNames = data.map(function(d){return d.key});
+ xScale.domain(allNames);
+ xAxis = d3.axisBottom(xScale);
+  xAxis.tickFormat(d=>{return data.filter(dd=>dd.key==d)[0].name;});
+  xAxisGroup.selectAll("line").remove();
+
+  yMax = d3.max(data, function(d){return d.value});
+ yDomain = [0, yMax+yMax*0.1];
+ yScale.domain(yDomain);
+
+ xAxisGroup.transition().delay(1500).call(xAxis).selectAll("text").attr("font-size", 18);
+ xAxisGroup.selectAll("line").remove();
+
+ elementsForPage.transition().delay(1500).duration(500).attr("transform", function(d, i){
+      return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
+  });
+
+exitingElements.select('rect')
+.attr('fill',"#7DB9DE")
+
+  .transition()
+  .delay(500)
+  .duration(1000)
+  .attr('height',function(d, i){
+    return 0
+  })
+  .attr('y',function(d, i){
+    return 0
+  })
+
+
+
+  exitingElements.transition().delay(2000).remove();
+  elementsForPage.select("rect")
+ .transition()
+ .delay(1500)
+ .duration(500)
+ .attr("width", function(){
+    return xScale.bandwidth();
+ })
+ .attr("y", function(d,i){
+   return -yScale(d.value);
+ })
+ .attr("height", function(d, i){
+   return yScale(d.value);
+ })
+;
+
+}
+document.getElementById("buttonB").addEventListener("click", remove);
+
+function removeAndAdd(){
+  removeAndAddDatapoints(1,1);
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data,assignKeys);
+
+  enteringElements = elementsForPage.enter();
   exitingElements = elementsForPage.exit();
 
   allNames = data.map(function(d){return d.key});
@@ -458,16 +482,59 @@ function remove(){
   });
 
   exitingElements.remove();
-}
-document.getElementById("buttonB").addEventListener("click", remove);
+  elementsForPage.select("rect")
+ .transition()
+ .delay(200)
+ .duration(500)
+ .attr("width", function(){
+    return xScale.bandwidth();
+ })
+ .attr("y", function(d,i){
+   return -yScale(d.value);
+ })
+ .attr("height", function(d, i){
+   return yScale(d.value);
+ })
+;
+// console.log("enteringElements",enteringElements);
+enteringDataGroups = enteringElements.append("g").classed("datapoint", true);
 
-function removeAndAdd(){
-  removeAndAddDatapoints(1,1);
+enteringDataGroups.attr("transform", function(d, i){
+  return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
+});
+// then append rectangles to them and position/size them:
+enteringDataGroups
+  .append("rect")
+  .transition()
+  .delay(500)
+  .duration(1000)
+    .attr("width", function(){
+      // the scaleBand we are using
+      // allows us to as how thick each band is:
+      return xScale.bandwidth();
+    })
+    .attr("height", function(d, i){
+      // the idea is that we make the bar
+      // as high as dictated by the value...
+      return yScale(d.value);
+    })
+    .attr("y", function(d,i){
+      // ...and then push the bar up since it
+      // is drawn from top to bottom
+      return -yScale(d.value);
+    })
+    .attr("fill", "black")
+;
+
+
+
 }
 document.getElementById("buttonC").addEventListener("click", removeAndAdd);
 
 function sortData(){
   sortDatapoints();
+
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data,assignKeys);
 
   allNames = data.map(function(d){return d.key});
  xScale.domain(allNames);
@@ -506,5 +573,56 @@ document.getElementById("buttonD").addEventListener("click", sortData);
 
 function shuffleData(){
   shuffleDatapoints();
+
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data,assignKeys);
+
+  allNames = data.map(function(d){return d.key});
+ xScale.domain(allNames);
+ xAxis = d3.axisBottom(xScale);
+  xAxis.tickFormat(d=>{return data.filter(dd=>dd.key==d)[0].name;});
+  xAxisGroup.selectAll("line").remove();
+
+  yMax = d3.max(data, function(d){return d.value});
+ yDomain = [0, yMax+yMax*0.1];
+ yScale.domain(yDomain);
+
+ xAxisGroup.transition().delay(200).call(xAxis).selectAll("text").attr("font-size", 18);
+ xAxisGroup.selectAll("line").remove();
+
+ elementsForPage.transition().delay(200).duration(500).attr("transform", function(d, i){
+      return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
+  });
+
+  elementsForPage.select("rect")
+   .transition()
+   .delay(200)
+   .duration(500)
+   .attr("width", function(){
+      return xScale.bandwidth();
+   })
+   .attr("y", function(d,i){
+     return -yScale(d.value);
+   })
+   .attr("height", function(d, i){
+     return yScale(d.value);
+   })
+  ;
+
 }
 document.getElementById("buttonE").addEventListener("click", shuffleData);
+
+function randomColor(){
+  // console.log('randomcolor');
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data,assignKeys);
+  let randomr = Math.floor(Math.random()*255);
+  let randomg = Math.floor(Math.random()*255);
+  let randomb = Math.floor(Math.random()*255);
+  function getColor(){
+    return "rgb("+randomr+","+randomg+","+randomb+")"
+  }
+elementsForPage.select('rect')
+  .attr('fill',getColor)
+
+
+}
+document.getElementById("buttonF").addEventListener("click", randomColor);
