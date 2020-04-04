@@ -465,19 +465,19 @@ function removeAndAdd(){
   exitingElements = elementsForPage.exit();
 
   allNames = data.map(function(d){return d.key});
- xScale.domain(allNames);
- xAxis = d3.axisBottom(xScale);
+  xScale.domain(allNames);
+  xAxis = d3.axisBottom(xScale);
   xAxis.tickFormat(d=>{return data.filter(dd=>dd.key==d)[0].name;});
   xAxisGroup.selectAll("line").remove();
 
   yMax = d3.max(data, function(d){return d.value});
- yDomain = [0, yMax+yMax*0.1];
- yScale.domain(yDomain);
+  yDomain = [0, yMax+yMax*0.1];
+  yScale.domain(yDomain);
 
- xAxisGroup.transition().delay(200).call(xAxis).selectAll("text").attr("font-size", 18);
- xAxisGroup.selectAll("line").remove();
+  xAxisGroup.transition().delay(200).call(xAxis).selectAll("text").attr("font-size", 18);
+  xAxisGroup.selectAll("line").remove();
 
- elementsForPage.transition().delay(200).duration(500).attr("transform", function(d, i){
+  elementsForPage.transition().delay(200).duration(500).attr("transform", function(d, i){
       return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
   });
 
@@ -537,19 +537,19 @@ function sortData(){
   elementsForPage = graphGroup.selectAll(".datapoint").data(data,assignKeys);
 
   allNames = data.map(function(d){return d.key});
- xScale.domain(allNames);
- xAxis = d3.axisBottom(xScale);
+  xScale.domain(allNames);
+  xAxis = d3.axisBottom(xScale);
   xAxis.tickFormat(d=>{return data.filter(dd=>dd.key==d)[0].name;});
   xAxisGroup.selectAll("line").remove();
 
   yMax = d3.max(data, function(d){return d.value});
- yDomain = [0, yMax+yMax*0.1];
- yScale.domain(yDomain);
+  yDomain = [0, yMax+yMax*0.1];
+  yScale.domain(yDomain);
 
- xAxisGroup.transition().delay(200).call(xAxis).selectAll("text").attr("font-size", 18);
- xAxisGroup.selectAll("line").remove();
+  xAxisGroup.transition().delay(200).call(xAxis).selectAll("text").attr("font-size", 18);
+  xAxisGroup.selectAll("line").remove();
 
- elementsForPage.transition().delay(200).duration(500).attr("transform", function(d, i){
+  elementsForPage.transition().delay(200).duration(500).attr("transform", function(d, i){
       return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
   });
 
@@ -577,19 +577,19 @@ function shuffleData(){
   elementsForPage = graphGroup.selectAll(".datapoint").data(data,assignKeys);
 
   allNames = data.map(function(d){return d.key});
- xScale.domain(allNames);
- xAxis = d3.axisBottom(xScale);
+  xScale.domain(allNames);
+  xAxis = d3.axisBottom(xScale);
   xAxis.tickFormat(d=>{return data.filter(dd=>dd.key==d)[0].name;});
   xAxisGroup.selectAll("line").remove();
 
   yMax = d3.max(data, function(d){return d.value});
- yDomain = [0, yMax+yMax*0.1];
- yScale.domain(yDomain);
+  yDomain = [0, yMax+yMax*0.1];
+  yScale.domain(yDomain);
 
- xAxisGroup.transition().delay(200).call(xAxis).selectAll("text").attr("font-size", 18);
- xAxisGroup.selectAll("line").remove();
+  xAxisGroup.transition().delay(200).call(xAxis).selectAll("text").attr("font-size", 18);
+  xAxisGroup.selectAll("line").remove();
 
- elementsForPage.transition().delay(200).duration(500).attr("transform", function(d, i){
+  elementsForPage.transition().delay(200).duration(500).attr("transform", function(d, i){
       return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
   });
 
@@ -620,8 +620,8 @@ function randomColor(){
   function getColor(){
     return "rgb("+randomr+","+randomg+","+randomb+")"
   }
-elementsForPage.select('rect')
-  .attr('fill',getColor)
+  elementsForPage.select('rect')
+    .attr('fill',getColor)
 
 
 }
