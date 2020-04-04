@@ -98,6 +98,8 @@ function assignKeys(d, i){
   return d.key;
 }
 
+//use assignKeys to combine the rect with the key
+
 let elementsForPage = graphGroup.selectAll(".datapoint").data(data, assignKeys);
 // note, we do not use ".enter()" for now. let's have a close look
 // at just this (the situation) for now
