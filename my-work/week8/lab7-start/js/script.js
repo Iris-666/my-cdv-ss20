@@ -601,15 +601,37 @@ document.getElementById("buttonE").addEventListener("click", shuffleData);
 function randomColor(){
   // console.log('randomcolor');
   elementsForPage = graphGroup.selectAll(".datapoint").data(data,assignKeys);
-  let randomr = Math.floor(Math.random()*255);
-  let randomg = Math.floor(Math.random()*255);
-  let randomb = Math.floor(Math.random()*255);
-  function getColor(){
-    return "rgb("+randomr+","+randomg+","+randomb+")"
-  }
-  elementsForPage.select('rect')
-    .attr('fill',getColor)
 
+  elementsForPage.select('rect')
+    .attr('fill',function() {
+    return "rgb("+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+")";
+    })
+}
+
+function grow(){
+  growValue();
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data,assignKeys);
+  yMax = d3.max(data, function(d){return d.value});
+  yDomain = [0, yMax+yMax*0.1];
+  yScale.domain(yDomain);
+
+  elementsForPage.select("rect")
+   .transition()
+   .delay(200)
+   .duration(1000)
+   .attr("width", function(){
+      return xScale.bandwidth();
+   })
+   .attr("y", function(d,i){
+     return -yScale(d.value);
+   })
+   .attr("height", function(d, i){
+     return yScale(d.value);
+   })
+  ;
 
 }
+
+
 document.getElementById("buttonF").addEventListener("click", randomColor);
+document.getElementById("buttonF").addEventListener("click", grow);

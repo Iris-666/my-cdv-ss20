@@ -186,3 +186,13 @@ function shuffleDatapoints(){
 shuffleDatapoints();
 
 //now bind this function to a button in script.js
+
+function growValue(){
+  for(i = 0; i<data.length; i++){
+    datapoint = data[i];
+    // console.log(datapoint.value);
+    datapoint.value += 10;
+  }
+}
+
+// growValue();
