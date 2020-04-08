@@ -540,20 +540,20 @@ function sortData(){
       return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
   });
 
-  elementsForPage.select("rect")
-   .transition()
-   .delay(200)
-   .duration(500)
-   .attr("width", function(){
-      return xScale.bandwidth();
-   })
-   .attr("y", function(d,i){
-     return -yScale(d.value);
-   })
-   .attr("height", function(d, i){
-     return yScale(d.value);
-   })
-  ;
+  // elementsForPage.select("rect")
+  //  .transition()
+  //  .delay(200)
+  //  .duration(500)
+  //  .attr("width", function(){
+  //     return xScale.bandwidth();
+  //  })
+  //  .attr("y", function(d,i){
+  //    return -yScale(d.value);
+  //  })
+  //  .attr("height", function(d, i){
+  //    return yScale(d.value);
+  //  })
+  // ;
 
 }
 document.getElementById("buttonD").addEventListener("click", sortData);
