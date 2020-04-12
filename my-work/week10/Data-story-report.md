@@ -12,5 +12,5 @@ Another artwork is called Lessons from those we've lost, which explores over a c
 ![Lessons from those we've lost](extinct.jpg)
 However, these two data visualizations are not interactive. Therefore, inspired by these two artworks, I would also like to visualize my dataset in a similar way. What is different is that by clicking each little circle, a map with the location where each item was lost would show up. I also would like to show what kind of things that people are more likely to lose and the locations where more things were lost. I will also choose some unique items I found interesting and show them in detail. After browsing through the dataset, I found that mobile phones, wallets, ID cards are the most common things that people lost. However, there are some very interesting things, for example, crayfish, pancakes, baby bottles, or trash cans.
 
-Link to the two data visualizations: [London's Lost Properties](https://www.behance.net/gallery/17832017/WIRED-UK-INFOPORN-Londons-Lost-Property)
+Link to the two data visualizations: [London's Lost Properties](https://www.behance.net/gallery/17832017/WIRED-UK-INFOPORN-Londons-Lost-Property) and 
 [Lessons from those we've lost](https://www.jamesrounddesign.com/lessons-from-those-weve-lost)
