@@ -1,6 +1,8 @@
+### Response to Seeing Like a State & Cambridge Analytica
+</br>
 I’m impressed by Scott’s idea of “see[ing] legibility as a central problem in statecraft” (2). As he explained, the state gets to control and manage its subjects when homogeneous standards are created and data are collected. For example, in the history of China, the first emperor of Qin, weights, measures, texts, currency, last name, and the width of the roads were standardized for the sake of controlling the huge state and ensuring the standardization of national taxes and incomes. Before, I always regarded data as a modern word and related it with digital technologies. By Scott’s argument, I realized that data have been existing since a long time ago as a way of political control. However, what data means, how data are collected and used has changed a lot because of the development of technology. In the history, the national standardization and data collection can be a good idea since people can only collect the data manually so that they don’t need to worry about their privacy being collected or their data being abused.
 </br>
-</br> 
+</br>
 The situation has become completely different now. In the case of Trump Consultants Exploiting the Facebook Data of Millions, people’s private data were collected without consent and used to influence their behavior in voting. Although this is also “CONTROLLING”, it’s not regulating people but manipulating people. In my view, data can be properly used to regulate society, but shouldn’t be used as a tool to manipulate people like marionettes to achieve somebody’s personal goals.
 </br>
  </br>
