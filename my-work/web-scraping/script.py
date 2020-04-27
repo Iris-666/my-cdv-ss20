@@ -1,4 +1,3 @@
-# from random import random
 from requests_html import HTMLSession
 import json
 import codecs
@@ -21,7 +20,6 @@ for i in range(288):
     url = baseURL + str(i)
     # print('getting', url)
     page = session.get(url)
-
     #print(page.text)
 
     tr = page.html.find('tr.tr02')
@@ -63,7 +61,7 @@ for i in range(len(numbers)):
 # with codecs.open("data_file.json2", "w",encoding='utf-8') as write_file:
 #     json.dump(all, write_file, indent=4)
 
-with open("data_file.json","w",encoding='utf-8') as f:
+with open("data_file3.json","w",encoding='utf-8') as f:
  json.dump(all,f,ensure_ascii=False,sort_keys=True, indent=4);
  print(u'loaded into file completion...');
 

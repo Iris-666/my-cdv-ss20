@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hear the birds sing</title>
+    <link rel="stylesheet" href="map.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css' rel='stylesheet' />
+    <!-- we are including the d3.js library. We load it
+    right from the web into this html file. This allows us
+    to use all the functions that d3 has defines for
+    us in our own code. -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js" type="text/javascript"></script>
+
+
+  </head>
+  <body>
+
+    <!-- <div id="viz-container">
+
+    </div> -->
+    <div id='map' ></div>
+
+    <div id='graphic'>
+  <div id='sections'>
+    <section class="step">
+      <div class="title"></div>
+    </section>
+    <section class="step">
+
+    </section>
+  </div>
+  <div id='viz-container'>
+  </div>
+</div>
+<!-- <script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiaXJpczY2NnFxcSIsImEiOiJjazloYTZlbDUwd2dtM2lsbDNpNjl2eGZ5In0.l3cVNBtLlnQc5OIK-2DevA';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v9'
+});
+</script> -->
+<button id="backbt">BACK</button>
+
+    <script type="text/javascript" src="map.js"></script>
+  </body>
+</html>
