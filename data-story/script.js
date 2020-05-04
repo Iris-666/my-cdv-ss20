@@ -922,6 +922,478 @@ viz.append('circle')
           });
 
         }
+        else if(d[0].type == "Books" && d[0].time[5] == '1'&&d[0].time[6] == '2'){
+          d3.select('#hidingMap')
+          .style('display','block')
+
+          console.log(d);
+          d3.select('.scrollingContent')
+          .append('div')
+          .attr('class','total')
+          .append('text')
+          .text('December 2019, Lost Books in Shanghai')
+          .attr('x',500)
+          .attr('y',height/2)
+          .attr('font-size',20)
+          .attr('font-family','Pangolin')
+
+          mapviz.append('path')
+          .attr('d',"M0.61,0C-11.74-7.95-17.85-19.52-15-28.04c0.4-1.18,2.65-7.79,9.25-10.09c3.84-1.34,8.98-1.18,12.72,1.68 c3.31,2.52,4.2,6.13,4.63,7.85C14.76-15.81,2.6-2.18,0.61,0z")
+          .attr('transform',function(){
+            return 'translate('+projection([121.428896,31.185293])[0]+','+projection([121.428896,31.185293])[1]+') scale('+0+')'
+          })
+          .attr('fill',"#4A225D")
+          .style('opacity','0.5')
+          .attr('class','cashSpecialLocation')
+
+          var scrollingViz = d3.select(".scrollingContent")
+
+          scrollingViz.selectAll('.specialBookDec').data(d).enter()
+          .append('div')
+          .attr('class',function(d, i){
+            console.log(i);
+            return 'specialBookDec' + i
+          })
+          .append('text')
+          .text(function(d){
+            // console.log(d);
+            return d.name;
+          })
+          .attr('x',500)
+          .attr('y',height/2)
+          .attr('font-size',30)
+          .attr('font-family','Pangolin')
+
+          enterView({
+            selector: '.specialBookDec0',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.428896,31.185293])[0]+','+projection([121.428896,31.185293])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.428896,31.185293])[0]+','+projection([121.428896,31.185293])[1]+') scale('+0+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+          });
+
+          enterView({
+            selector: '.specialBookDec1',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.460549,31.258276])[0]+','+projection([121.460549,31.258276])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.428896,31.185293])[0]+','+projection([121.428896,31.185293])[1]+') scale('+1+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+
+          });
+          enterView({
+            selector: '.specialBookDec2',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.435865,31.159439])[0]+','+projection([121.435865,31.159439])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.460549,31.258276])[0]+','+projection([121.460549,31.258276])[1]+') scale('+1+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+
+          });
+          enterView({
+            selector: '.specialBookDec3',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.55837,31.325265])[0]+','+projection([121.55837,31.325265])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.435865,31.159439])[0]+','+projection([121.435865,31.159439])[1]+') scale('+1+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+
+          });
+          enterView({
+            selector: '.specialBookDec4',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.346817,31.203347])[0]+','+projection([121.346817,31.203347])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.55837,31.325265])[0]+','+projection([121.55837,31.325265])[1]+') scale('+1+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+
+          });
+          enterView({
+            selector: '.specialBookDec5',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.254481,31.372456])[0]+','+projection([121.254481,31.372456])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.346817,31.203347])[0]+','+projection([121.346817,31.203347])[1]+') scale('+1+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+
+          });
+          enterView({
+            selector: '.specialBookDec6',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.258956,30.823841])[0]+','+projection([121.258956,30.823841])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.254481,31.372456])[0]+','+projection([121.254481,31.372456])[1]+') scale('+1+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+
+          });
+
+
+        }
+        else if(d[0].type == "Books" && d[0].time[5] == '0'&&d[0].time[6] == '1'){
+          d3.select('#hidingMap')
+          .style('display','block')
+
+          d3.select('.scrollingContent')
+          .append('div')
+          .attr('class','total')
+          .append('text')
+          .text('January 2020, Lost Books in Shanghai')
+          .attr('x',500)
+          .attr('y',height/2)
+          .attr('font-size',20)
+          .attr('font-family','Pangolin')
+
+          mapviz.append('path')
+          .attr('d',"M0.61,0C-11.74-7.95-17.85-19.52-15-28.04c0.4-1.18,2.65-7.79,9.25-10.09c3.84-1.34,8.98-1.18,12.72,1.68 c3.31,2.52,4.2,6.13,4.63,7.85C14.76-15.81,2.6-2.18,0.61,0z")
+          .attr('transform',function(){
+            return 'translate('+projection([121.409304,31.453863])[0]+','+projection([121.409304,31.453863])[1]+') scale('+0+')'
+          })
+          .attr('fill',"#4A225D")
+          .style('opacity','0.5')
+          .attr('class','cashSpecialLocation')
+
+          var scrollingViz = d3.select(".scrollingContent")
+
+          scrollingViz.selectAll('.specialBookJan').data(d).enter()
+          .append('div')
+          .attr('class',function(d, i){
+            console.log(i);
+            return 'specialBookJan' + i
+          })
+          .append('text')
+          .text(function(d){
+            // console.log(d);
+            return d.name;
+          })
+          .attr('x',500)
+          .attr('y',height/2)
+          .attr('font-size',30)
+          .attr('font-family','Pangolin')
+
+          enterView({
+            selector: '.specialBookJan0',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.409304,31.453863])[0]+','+projection([121.409304,31.453863])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.409304,31.453863])[0]+','+projection([121.409304,31.453863])[1]+') scale('+0+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+          });
+
+          enterView({
+            selector: '.specialBookJan1',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.469808,31.234969])[0]+','+projection([121.469808,31.234969])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.409304,31.453863])[0]+','+projection([121.409304,31.453863])[1]+') scale('+1+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+
+          });
+          enterView({
+            selector: '.specialBookJan2',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.53353,31.234807])[0]+','+projection([121.53353,31.234807])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.469808,31.234969])[0]+','+projection([121.469808,31.234969])[1]+') scale('+1+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+
+          });
+        }
+        else if(d[0].type == "Books" && d[0].time[5] == '1'&&d[0].time[6] == '1'){
+          d3.select('#hidingMap')
+          .style('display','block')
+
+          console.log(d);
+          d3.select('.scrollingContent')
+          .append('div')
+          .attr('class','total')
+          .append('text')
+          .text('November 2019, Lost Books in Shanghai')
+          .attr('x',500)
+          .attr('y',height/2)
+          .attr('font-size',20)
+          .attr('font-family','Pangolin')
+
+          mapviz.append('path')
+          .attr('d',"M0.61,0C-11.74-7.95-17.85-19.52-15-28.04c0.4-1.18,2.65-7.79,9.25-10.09c3.84-1.34,8.98-1.18,12.72,1.68 c3.31,2.52,4.2,6.13,4.63,7.85C14.76-15.81,2.6-2.18,0.61,0z")
+          .attr('transform',function(){
+            return 'translate('+projection([121.441747,31.329018])[0]+','+projection([121.441747,31.329018])[1]+') scale('+0+')'
+          })
+          .attr('fill',"#4A225D")
+          .style('opacity','0.5')
+          .attr('class','cashSpecialLocation')
+
+          var scrollingViz = d3.select(".scrollingContent")
+
+          scrollingViz.selectAll('.specialBookNov').data(d).enter()
+          .append('div')
+          .attr('class',function(d, i){
+            console.log(i);
+            return 'specialBookNov' + i
+          })
+          .append('text')
+          .text(function(d){
+            // console.log(d);
+            return d.name;
+          })
+          .attr('x',500)
+          .attr('y',height/2)
+          .attr('font-size',30)
+          .attr('font-family','Pangolin')
+
+          enterView({
+            selector: '.specialBookNov0',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.441747,31.329018])[0]+','+projection([121.441747,31.329018])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.441747,31.329018])[0]+','+projection([121.441747,31.329018])[1]+') scale('+0+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+          });
+
+          enterView({
+            selector: '.specialBookNov1',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.256655,30.827142])[0]+','+projection([121.256655,30.827142])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.441747,31.329018])[0]+','+projection([121.441747,31.329018])[1]+') scale('+1+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+
+          });
+          enterView({
+            selector: '.specialBookNov2',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.44408,31.33585])[0]+','+projection([121.44408,31.33585])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.256655,30.827142])[0]+','+projection([121.256655,30.827142])[1]+') scale('+1+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+
+          });
+          enterView({
+            selector: '.specialBookNov3',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.54022,31.184282])[0]+','+projection([121.54022,31.184282])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.44408,31.33585])[0]+','+projection([121.44408,31.33585])[1]+') scale('+1+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+
+          });
+          enterView({
+            selector: '.specialBookNov4',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.384964,31.113468])[0]+','+projection([121.384964,31.113468])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.54022,31.184282])[0]+','+projection([121.54022,31.184282])[1]+') scale('+1+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+
+          });
+          enterView({
+            selector: '.specialBookNov5',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.733438,31.044515])[0]+','+projection([121.733438,31.044515])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.384964,31.113468])[0]+','+projection([121.384964,31.113468])[1]+') scale('+1+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+
+          });
+          enterView({
+            selector: '.specialBookNov6',
+            enter: function(el) {
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.270291,31.356128])[0]+','+projection([121.270291,31.356128])[1]+') scale('+1+')'
+              })
+            },
+            exit: function(el) {
+              console.log('bye');
+              d3.select('.cashSpecialLocation')
+              .transition().duration(800)
+              .attr('transform',function(){
+                return 'translate('+projection([121.733438,31.044515])[0]+','+projection([121.733438,31.044515])[1]+') scale('+1+')'
+              })
+            },
+            offset: 0.5// enter at middle of viewport
+
+          });
+
+
+        }
 
           else{
             d3.select('#hidingMap')

@@ -10659,7 +10659,7 @@
     {
         "feature": "牛奶可乐经济学",
         "location": "宝山区石太路月泉湾湾大酒店",
-        "name": "牛奶可乐经济学",
+        "name": "牛奶可乐经济学 The Economic Naturalist",
         "number": "172",
         "time": "2020-01-06",
         "type": "Books"
@@ -10667,7 +10667,7 @@
     {
         "feature": "目送",
         "location": "南京西路",
-        "name": "目送",
+        "name": "目送 Gaze After",
         "number": "171",
         "time": "2020-01-06",
         "type": "Books"
@@ -10675,7 +10675,7 @@
     {
         "feature": "边城",
         "location": "世纪大道地铁站",
-        "name": "边城",
+        "name": "边城 Border Town",
         "number": "170",
         "time": "2020-01-06",
         "type": "Books"
@@ -11307,7 +11307,7 @@
     {
         "feature": "灰色封面，有一小男孩照片",
         "location": "上海第六人民医院",
-        "name": "《现代文品读和文言文点击》",
+        "name": "《现代文品读和文言文点击》 Modern article reading and classical Chinese",
         "number": "1203",
         "time": "2019-12-30",
         "type": "Books"
@@ -11315,7 +11315,7 @@
     {
         "feature": "灰色封面",
         "location": "上海南站",
-        "name": "《单元测评》",
+        "name": "《单元测评》Measurement of the unit",
         "number": "1202",
         "time": "2019-12-13",
         "type": "Books"
@@ -11323,7 +11323,7 @@
     {
         "feature": "白色封面",
         "location": "上海长途汽车站",
-        "name": "《这一生，为自己而活》",
+        "name": "《这一生，为自己而活》This life, live for yourself",
         "number": "1201",
         "time": "2019-12-24",
         "type": "Books"
@@ -11331,7 +11331,7 @@
     {
         "feature": "米色封面",
         "location": "上海虹桥国际机场",
-        "name": "《人间失格》",
+        "name": "《人间失格》No Longer Human",
         "number": "1200",
         "time": "2019-12-30",
         "type": "Books"
@@ -11339,7 +11339,7 @@
     {
         "feature": "浅蓝色封面",
         "location": "共青国家森林公园",
-        "name": "《瓦尔登湖》",
+        "name": "《瓦尔登湖》Walden",
         "number": "1199",
         "time": "2019-12-30",
         "type": "Books"
@@ -11347,7 +11347,7 @@
     {
         "feature": "蓝灰色封面",
         "location": "上海市金山区吕巷镇新东街104弄门口",
-        "name": "《我在渡口等你》",
+        "name": "《我在渡口等你》I'll wait for you at the ferry",
         "number": "1198",
         "time": "2019-12-30",
         "type": "Books"
@@ -13875,7 +13875,7 @@
     {
         "feature": "书名：米小圈上学记",
         "location": "上海市金山区吕巷镇金张公路2430号",
-        "name": "图书",
+        "name": "米小圈上学记",
         "number": "844",
         "time": "2019-12-05",
         "type": "Books"
@@ -14435,7 +14435,7 @@
     {
         "feature": "草绿色封面",
         "location": "场北路长临路",
-        "name": "不让我睡觉的虫",
+        "name": "不让我睡觉的虫 A bug that won't let me sleep",
         "number": "771",
         "time": "2019-11-29",
         "type": "Books"
@@ -14443,15 +14443,15 @@
     {
         "feature": "草绿色封面",
         "location": "剑河路500号",
-        "name": "黑暗中的猜谜",
+        "name": "黑暗中的猜谜 Riddles in the dark",
         "number": "770",
         "time": "2019-11-29",
         "type": "Books"
     },
     {
         "feature": "绿色封面",
-        "location": "上海市金山区吕巷镇吕新路258号",
-        "name": "学霸笔记",
+        "location": "三泉路长江西路",
+        "name": "1984",
         "number": "769",
         "time": "2019-11-29",
         "type": "Books"
@@ -14459,7 +14459,7 @@
     {
         "feature": "白色封面",
         "location": "上海市金山区吕巷镇吕新路258号",
-        "name": "中学生最佳作文选",
+        "name": "中学生最佳作文选 The best composition for middle school students",
         "number": "768",
         "time": "2019-11-29",
         "type": "Books"
@@ -14467,7 +14467,7 @@
     {
         "feature": "黄色封面",
         "location": "闵行中心医院",
-        "name": "单词同步学",
+        "name": "杀死一只知更鸟 To Kill a Mockingbird",
         "number": "767",
         "time": "2019-11-29",
         "type": "Books"
@@ -14475,7 +14475,7 @@
     {
         "feature": "朗文外研社出版，学生用书",
         "location": "新场镇老街",
-        "name": "新概念英语",
+        "name": "新概念英语 New Concept English",
         "number": "766",
         "time": "2019-11-29",
         "type": "Books"
@@ -14891,7 +14891,7 @@
     {
         "feature": "哈利波特",
         "location": "嘉定区新成图书馆门口",
-        "name": "图书",
+        "name": "哈利波特 Harry Potter",
         "number": "714",
         "time": "2019-11-28",
         "type": "Books"
