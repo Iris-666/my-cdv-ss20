@@ -5,12 +5,15 @@
     <title>Hear the birds sing</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
 
     <!-- we are including the d3.js library. We load it
     right from the web into this html file. This allows us
     to use all the functions that d3 has defines for
     us in our own code. -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/enter-view"></script>
+
 
 
   </head>
@@ -23,9 +26,62 @@
 
     </div>
 
+<div id="hidingMap">
+
+<div class="stickyMap">
+
+    <div id="map-container">
+
+    </div>
+
+  </div>
+  <div class="scrollingContent">
+
+    <!-- <div>
+      <p class="">This is the content that 'floats' by.</p>
+    </div>
+    <div>
+      <p class="">We can scroll...</p>
+    </div>
+    <div>
+      <p class="">...and scroll...</p>
+    </div>
+    <div>
+      <p class="">...and scroll...or take the circle <button id="leftButton">left</button> or <button id="rightButton">right</button>... </p>
+    </div>
+    <div>
+      <p class="">...or make it <button id="smallButton">small</button> or <button id="largeButton">large</button>... </p>
+    </div>
+    <div  class="scrollTriggerOne">
+      <p>...and scroll...  (this one is special, check the console)</p>
+    </div>
+    <div>
+      <p class="">... and the sticky element...</p>
+    </div>
+    <div>
+      <p class="">...will only...</p>
+    </div>
+    <div>
+      <p class="">...seize to stick...</p>
+    </div>
+    <div>
+      <p class="">...when we reach...</p>
+    </div>
+    <div>
+      <p class="">...the bottom!</p>
+    </div> -->
+
+  </div>
+</div>
+
+
+
+
     <!-- here we incude out own javascript file in which we are
     using many of the functions from the d3 library that we
     have included in the <head> section -->
     <script type="text/javascript" src="script.js"></script>
+    <!-- <script type="text/javascript" src="map.js"></script> -->
+
   </body>
 </html>

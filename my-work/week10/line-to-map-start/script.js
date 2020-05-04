@@ -81,7 +81,7 @@ d3.json("mainland.geojson").then(function(geoData){
           // return colorScale(d.population)
           console.log(d.properties.name);
           let correspondingDatapoint = incomingData.find(function(datapoint){
-            // console.log(datapoint);
+            console.log(datapoint);
             if(datapoint.province == d.properties.name){
               return true;
             }else{
