@@ -23,37 +23,124 @@ body{
   display: none;
   background-color: rgb(252,250,242);
   z-index: 1;
-  height: 2000px;
+  /* height: 2000px; */
 
 }
 .stickyMap {
   height: 100vh;
-  width: 50%;
+  width: 67%;
   top: 0;
+  left: 0;
   z-index: 1;
   position: sticky;
   pointer-events: none;
-
+  margin: 0;
+  padding: 0;
   /* ps you can even make this div a flexbox to position elements inside it */
-  display: relative;
+  display: inline;
   /* justify-content: center;
   align-items: center; */
 }
 
+.scrollingContent{
+  left: 67vw;
+  position: relative;
+  display: inline;
+  width: 33vw;
+
+}
 .scrollingContent div{
-  margin-left: 67vw;
+  position: relative;
   /* padding: 10px; */
   /* background-color: lightyellow; */
-  /* text-align: right; */
   width: 33vw;
 
   /* outline: 5px dashed lightpink; */
-  margin-bottom: 200px;
+
   display: relative;
   z-index: 100;
-  font-size: 30px;
+  font-size: 20px;
   font-family: 'Pangolin'
 }
+
+.total{
+  margin-bottom: 400px;
+
+  padding-top: 50vh;
+
+}
+.totalElse{
+
+  padding-top: 50vh;
+  padding-bottom: 50vh;
+
+}
+
+
+.specialCashApril1{
+  padding-bottom: 50vh;
+  margin-bottom: 400px;
+}
+
+.specialWatchFeb1{
+  padding-bottom: 5vh;
+  margin-bottom: 0px;
+}
+.specialWatchFeb2{
+  padding-bottom: 50vh;
+  margin-bottom: 0px;
+}
+
+.specialCashApril2{
+  padding-bottom: 50vh;
+  margin-bottom: 0px;
+}
+.specialOtherJan{
+  padding-bottom: 50vh;
+  margin-bottom: 0px;
+}
+
+.specialBookApr0{
+  padding-bottom: 50vh;
+  margin-bottom: 0px;
+}
+.specialBookApr1{
+  padding-bottom: 50vh;
+  margin-bottom: 0px;
+}
+.specialBookApr2{
+  padding-bottom: 50vh;
+  margin-bottom: 0px;
+}
+.specialBookApr3{
+  padding-bottom: 50vh;
+  margin-bottom: 0px;
+}
+.specialBookApr4{
+  padding-bottom: 50vh;
+  margin-bottom: 0px;
+}
+.specialBookMar0{
+  padding-bottom: 50vh;
+  margin-bottom: 0px;
+}
+.specialBookMar1{
+  padding-bottom: 50vh;
+  margin-bottom: 0px;
+}
+.specialBookMar2{
+  padding-bottom: 50vh;
+  margin-bottom: 0px;
+}
+.specialBookMar3{
+  padding-bottom: 50vh;
+  margin-bottom: 0px;
+}
+.specialBookFeb{
+  padding-bottom: 50vh;
+  margin-bottom: 0px;
+}
+
 
 
 .title{
