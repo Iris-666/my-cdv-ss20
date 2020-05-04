@@ -540,6 +540,252 @@ viz.append('circle')
             });
 
           }
+          else if(d[0].type == "Jewellery" && d[0].time[5] == '0'&&d[0].time[6] == '1'){
+            d3.select('#hidingMap')
+            .style('display','block')
+
+
+            mapviz.append('path')
+            .attr('d',"M0.61,0C-11.74-7.95-17.85-19.52-15-28.04c0.4-1.18,2.65-7.79,9.25-10.09c3.84-1.34,8.98-1.18,12.72,1.68 c3.31,2.52,4.2,6.13,4.63,7.85C14.76-15.81,2.6-2.18,0.61,0z")
+            .attr('transform',function(){
+              return 'translate('+projection([121.672063,31.148267])[0]+','+projection([121.672063,31.148267])[1]+') scale('+0+')'
+            })
+            .attr('fill',"#4A225D")
+            .style('opacity','0.5')
+            .attr('class','cashSpecialLocation')
+
+
+            d3.select('.scrollingContent')
+            .append('div')
+            .attr('class','total')
+            .append('text')
+            .text('January 2020, Lost Jewellery in Shanghai')
+            .attr('x',500)
+            .attr('y',height/2)
+            .attr('font-size',20)
+            .attr('font-family','Pangolin')
+
+
+            d3.select('.scrollingContent')
+            .append('div')
+            .attr('class','specialJewJan')
+            .append('text')
+            .text('Most Jewellery were lost in Shanghai Disneyland Park. That make sense since people always dress up prettily when going to Disneyland =D')
+            .attr('x',500)
+            .attr('y',height/2)
+            .attr('font-size',30)
+            .attr('font-family','Pangolin')
+
+
+            enterView({
+              selector: '.specialJewJan',
+              enter: function(el) {
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.672063,31.148267])[0]+','+projection([121.672063,31.148267])[1]+') scale('+1+')'
+                })
+              },
+              exit: function(el) {
+                console.log('bye');
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.672063,31.148267])[0]+','+projection([121.672063,31.148267])[1]+') scale('+0+')'
+                })
+              },
+              progress: function(el, progress) {
+                console.log("the special element's progress is:", progress);
+              },
+              // offset: 0.5, // enter at middle of viewport
+              // once: true, // trigger just once
+            });
+
+          }
+          else if(d[0].type == "Watches and Glasses" && d[0].time[5] == '0'&&d[0].time[6] == '1'){
+            d3.select('#hidingMap')
+            .style('display','block')
+
+
+            mapviz.append('path')
+            .attr('d',"M0.61,0C-11.74-7.95-17.85-19.52-15-28.04c0.4-1.18,2.65-7.79,9.25-10.09c3.84-1.34,8.98-1.18,12.72,1.68 c3.31,2.52,4.2,6.13,4.63,7.85C14.76-15.81,2.6-2.18,0.61,0z")
+            .attr('transform',function(){
+              return 'translate('+projection([121.672063,31.148267])[0]+','+projection([121.672063,31.148267])[1]+') scale('+0+')'
+            })
+            .attr('fill',"#4A225D")
+            .style('opacity','0.5')
+            .attr('class','cashSpecialLocation')
+
+
+            d3.select('.scrollingContent')
+            .append('div')
+            .attr('class','total')
+            .append('text')
+            .text('January 2020, Lost Watches and Glasses in Shanghai')
+            .attr('x',500)
+            .attr('y',height/2)
+            .attr('font-size',20)
+            .attr('font-family','Pangolin')
+
+
+            d3.select('.scrollingContent')
+            .append('div')
+            .attr('class','specialWatchJan')
+            .append('text')
+            .text('People lost lots of watches and glasses in Shanghai Disneyland Park.')
+            .attr('x',500)
+            .attr('y',height/2)
+            .attr('font-size',30)
+            .attr('font-family','Pangolin')
+
+
+            enterView({
+              selector: '.specialWatchJan',
+              enter: function(el) {
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.672063,31.148267])[0]+','+projection([121.672063,31.148267])[1]+') scale('+1+')'
+                })
+              },
+              exit: function(el) {
+                console.log('bye');
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.672063,31.148267])[0]+','+projection([121.672063,31.148267])[1]+') scale('+0+')'
+                })
+              },
+              progress: function(el, progress) {
+                console.log("the special element's progress is:", progress);
+              },
+              // offset: 0.5, // enter at middle of viewport
+              // once: true, // trigger just once
+            });
+
+          }
+          else if(d[0].type == "Watches and Glasses" && d[0].time[5] == '1'&&d[0].time[6] == '1'){
+            d3.select('#hidingMap')
+            .style('display','block')
+
+
+            mapviz.append('path')
+            .attr('d',"M0.61,0C-11.74-7.95-17.85-19.52-15-28.04c0.4-1.18,2.65-7.79,9.25-10.09c3.84-1.34,8.98-1.18,12.72,1.68 c3.31,2.52,4.2,6.13,4.63,7.85C14.76-15.81,2.6-2.18,0.61,0z")
+            .attr('transform',function(){
+              return 'translate('+projection([121.672063,31.148267])[0]+','+projection([121.672063,31.148267])[1]+') scale('+0+')'
+            })
+            .attr('fill',"#4A225D")
+            .style('opacity','0.5')
+            .attr('class','cashSpecialLocation')
+
+
+            d3.select('.scrollingContent')
+            .append('div')
+            .attr('class','total')
+            .append('text')
+            .text('November 2019, Lost Watches and Glasses in Shanghai')
+            .attr('x',500)
+            .attr('y',height/2)
+            .attr('font-size',20)
+            .attr('font-family','Pangolin')
+
+
+            d3.select('.scrollingContent')
+            .append('div')
+            .attr('class','specialWatchNov')
+            .append('text')
+            .text('People lost lots of watches and glasses in Shanghai Disneyland Park.')
+            .attr('x',500)
+            .attr('y',height/2)
+            .attr('font-size',30)
+            .attr('font-family','Pangolin')
+
+
+            enterView({
+              selector: '.specialWatchNov',
+              enter: function(el) {
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.672063,31.148267])[0]+','+projection([121.672063,31.148267])[1]+') scale('+1+')'
+                })
+              },
+              exit: function(el) {
+                console.log('bye');
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.672063,31.148267])[0]+','+projection([121.672063,31.148267])[1]+') scale('+0+')'
+                })
+              },
+              progress: function(el, progress) {
+                console.log("the special element's progress is:", progress);
+              },
+              // offset: 0.5, // enter at middle of viewport
+              // once: true, // trigger just once
+            });
+
+          }
+          else if(d[0].type == "Other" && d[0].time[5] == '0'&&d[0].time[6] == '3'){
+            d3.select('#hidingMap')
+            .style('display','block')
+console.log(d);
+
+            mapviz.append('path')
+            .attr('d',"M0.61,0C-11.74-7.95-17.85-19.52-15-28.04c0.4-1.18,2.65-7.79,9.25-10.09c3.84-1.34,8.98-1.18,12.72,1.68 c3.31,2.52,4.2,6.13,4.63,7.85C14.76-15.81,2.6-2.18,0.61,0z")
+            .attr('transform',function(){
+              return 'translate('+projection([121.26268,31.046542])[0]+','+projection([121.26268,31.046542])[1]+') scale('+0+')'
+            })
+            .attr('fill',"#4A225D")
+            .style('opacity','0.5')
+            .attr('class','cashSpecialLocation')
+
+            d3.select('.scrollingContent')
+            .append('div')
+            .attr('class','total')
+            .append('text')
+            .text('March 2020, Lost Other in Shanghai')
+            .attr('x',500)
+            .attr('y',height/2)
+            .attr('font-size',20)
+            .attr('font-family','Pangolin')
+
+
+            d3.select('.scrollingContent')
+            .append('div')
+            .attr('class','specialOtherMar')
+            .append('text')
+            .text("On March 31th, the police found a washing machine by the side of Jiazhu road. ")
+            .attr('x',500)
+            .attr('y',height/2)
+            .attr('font-size',30)
+            .attr('font-family','Pangolin')
+
+            enterView({
+              selector: '.specialOtherMar',
+              enter: function(el) {
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.26268,31.046542])[0]+','+projection([121.26268,31.046542])[1]+') scale('+1+')'
+                })
+              },
+              exit: function(el) {
+                console.log('bye');
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.26268,31.046542])[0]+','+projection([121.26268,31.046542])[1]+') scale('+0+')'
+                })
+              },
+              progress: function(el, progress) {
+                console.log("the special element's progress is:", progress);
+              },
+            });
+
+
+          }
+
           else if(d[0].type == "Other" && d[0].time[5] == '0'&&d[0].time[6] == '1'){
             d3.select('#hidingMap')
             .style('display','block')
@@ -548,7 +794,7 @@ viz.append('circle')
             mapviz.append('path')
             .attr('d',"M0.61,0C-11.74-7.95-17.85-19.52-15-28.04c0.4-1.18,2.65-7.79,9.25-10.09c3.84-1.34,8.98-1.18,12.72,1.68 c3.31,2.52,4.2,6.13,4.63,7.85C14.76-15.81,2.6-2.18,0.61,0z")
             .attr('transform',function(){
-              return 'translate('+projection([121.43807,31.224154])[0]+','+projection([121.43807,31.224154])[1]+') scale('+0+')'
+              return 'translate('+projection([121.43281,31.164925])[0]+','+projection([121.43281,31.164925])[1]+') scale('+0+')'
             })
             .attr('fill',"#4A225D")
             .style('opacity','0.5')
@@ -564,12 +810,21 @@ viz.append('circle')
             .attr('font-size',20)
             .attr('font-family','Pangolin')
 
-
             d3.select('.scrollingContent')
             .append('div')
             .attr('class','specialOtherJan')
             .append('text')
-            .text('Someone found a watch worth four hundred thousand kuai and handed it to the police. After checking the surveillance camera, the police found the owner. The owner believed the rumors and drank liquor to prevent the corona virus. However, he got drunk and lost his watch later.')
+            .text("Someone lost an UAV(unmanned aerial vehicle) =(")
+            .attr('x',500)
+            .attr('y',height/2)
+            .attr('font-size',30)
+            .attr('font-family','Pangolin')
+
+            d3.select('.scrollingContent')
+            .append('div')
+            .attr('class','specialOtherJan2')
+            .append('text')
+            .text("On January 6th, a delivery guy Mr. Li found that the battery of his electric bicycle as well as the food for delivery disappeared. The police's investigation revealed that it was another delivery guy stole the battery and food since his own battery was not working. ")
             .attr('x',500)
             .attr('y',height/2)
             .attr('font-size',30)
@@ -577,6 +832,28 @@ viz.append('circle')
 
             enterView({
               selector: '.specialOtherJan',
+              enter: function(el) {
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.43281,31.164925])[0]+','+projection([121.43281,31.164925])[1]+') scale('+1+')'
+                })
+              },
+              exit: function(el) {
+                console.log('bye');
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.43281,31.164925])[0]+','+projection([121.43281,31.164925])[1]+') scale('+0+')'
+                })
+              },
+              progress: function(el, progress) {
+                console.log("the special element's progress is:", progress);
+              },
+            });
+
+            enterView({
+              selector: '.specialOtherJan2',
               enter: function(el) {
                 d3.select('.cashSpecialLocation')
                 .transition().duration(1500)
@@ -589,7 +866,7 @@ viz.append('circle')
                 d3.select('.cashSpecialLocation')
                 .transition().duration(1500)
                 .attr('transform',function(){
-                  return 'translate('+projection([121.43807,31.224154])[0]+','+projection([121.43807,31.224154])[1]+') scale('+0+')'
+                  return 'translate('+projection([121.43281,31.164925])[0]+','+projection([121.43281,31.164925])[1]+') scale('+1+')'
                 })
               },
               progress: function(el, progress) {
@@ -598,7 +875,128 @@ viz.append('circle')
             });
 
 
-          }else if(d[0].type == "Books" && d[0].time[5] == '0'&&d[0].time[6] == '4'){
+          }
+          else if(d[0].type == "Other" && d[0].time[5] == '1'&&d[0].time[6] == '2'){
+            d3.select('#hidingMap')
+            .style('display','block')
+
+
+            mapviz.append('path')
+            .attr('d',"M0.61,0C-11.74-7.95-17.85-19.52-15-28.04c0.4-1.18,2.65-7.79,9.25-10.09c3.84-1.34,8.98-1.18,12.72,1.68 c3.31,2.52,4.2,6.13,4.63,7.85C14.76-15.81,2.6-2.18,0.61,0z")
+            .attr('transform',function(){
+              return 'translate('+projection([121.425511,31.227831])[0]+','+projection([121.425511,31.227831])[1]+') scale('+0+')'
+            })
+            .attr('fill',"#4A225D")
+            .style('opacity','0.5')
+            .attr('class','cashSpecialLocation')
+
+            d3.select('.scrollingContent')
+            .append('div')
+            .attr('class','total')
+            .append('text')
+            .text('December 2019, Lost Other in Shanghai')
+            .attr('x',500)
+            .attr('y',height/2)
+            .attr('font-size',20)
+            .attr('font-family','Pangolin')
+
+
+            d3.select('.scrollingContent')
+            .append('div')
+            .attr('class','specialOtherDec')
+            .append('text')
+            .text("Someone lost an UAV(unmanned aerial vehicle) at Zhongshan Park on December 5th.")
+            .attr('x',500)
+            .attr('y',height/2)
+            .attr('font-size',30)
+            .attr('font-family','Pangolin')
+
+            enterView({
+              selector: '.specialOtherDec',
+              enter: function(el) {
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.425511,31.227831])[0]+','+projection([121.425511,31.227831])[1]+') scale('+1+')'
+                })
+              },
+              exit: function(el) {
+                console.log('bye');
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.425511,31.227831])[0]+','+projection([121.425511,31.227831])[1]+') scale('+0+')'
+                })
+              },
+              progress: function(el, progress) {
+                console.log("the special element's progress is:", progress);
+              },
+            });
+
+
+          }
+
+          else if(d[0].type == "Other" && d[0].time[5] == '1'&&d[0].time[6] == '1'){
+            d3.select('#hidingMap')
+            .style('display','block')
+
+
+            mapviz.append('path')
+            .attr('d',"M0.61,0C-11.74-7.95-17.85-19.52-15-28.04c0.4-1.18,2.65-7.79,9.25-10.09c3.84-1.34,8.98-1.18,12.72,1.68 c3.31,2.52,4.2,6.13,4.63,7.85C14.76-15.81,2.6-2.18,0.61,0z")
+            .attr('transform',function(){
+              return 'translate('+projection([121.223728,31.440852])[0]+','+projection([121.223728,31.440852])[1]+') scale('+0+')'
+            })
+            .attr('fill',"#4A225D")
+            .style('opacity','0.5')
+            .attr('class','cashSpecialLocation')
+
+            d3.select('.scrollingContent')
+            .append('div')
+            .attr('class','total')
+            .append('text')
+            .text('November 2019, Lost Other in Shanghai')
+            .attr('x',500)
+            .attr('y',height/2)
+            .attr('font-size',20)
+            .attr('font-family','Pangolin')
+
+
+            d3.select('.scrollingContent')
+            .append('div')
+            .attr('class','specialOtherNov')
+            .append('text')
+            .text("On November 1st, the Jiading police station received a report that there were twelve large white geese walking along the roadside. Finally, the police found the owner of these geese, who is a seventy-seven years old man, who was anxiously searching for them")
+            .attr('x',500)
+            .attr('y',height/2)
+            .attr('font-size',30)
+            .attr('font-family','Pangolin')
+
+            enterView({
+              selector: '.specialOtherNov',
+              enter: function(el) {
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.223728,31.440852])[0]+','+projection([121.223728,31.440852])[1]+') scale('+1+')'
+                })
+              },
+              exit: function(el) {
+                console.log('bye');
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.223728,31.440852])[0]+','+projection([121.223728,31.440852])[1]+') scale('+0+')'
+                })
+              },
+              progress: function(el, progress) {
+                console.log("the special element's progress is:", progress);
+              },
+            });
+
+
+          }
+
+          else if(d[0].type == "Books" && d[0].time[5] == '0'&&d[0].time[6] == '4'){
             d3.select('#hidingMap')
             .style('display','block')
 
