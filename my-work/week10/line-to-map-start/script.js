@@ -104,10 +104,10 @@ d3.json("mainland.geojson").then(function(geoData){
             .text(function(){
               return d.properties.name
             })
-            .attr('x',50)
-            // .attr('x',d3.mouse(this)[0])
-            .attr('y',50)
-            // .attr('y',d3.mouse(this)[1])
+            // .attr('x',50)
+            .attr('x',d3.mouse(this)[0])
+            // .attr('y',50)
+            .attr('y',d3.mouse(this)[1])
             .attr('id',function(){
               if(d.properties.name == 'Inner Mongol'){
                 return "innerMongolText"

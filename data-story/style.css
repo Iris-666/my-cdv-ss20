@@ -70,9 +70,15 @@ body{
 
 }
 .totalElse{
-
   padding-top: 50vh;
   padding-bottom: 50vh;
+}
+.totalMonth{
+  padding-top: 50vh;
+}
+.totalMonthNum{
+  padding-top: 5vh;
+  padding-bottom: 45vh;
 
 }
 

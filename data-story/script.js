@@ -417,7 +417,7 @@ function assignKeys(d){
 
       d3.select('.scrollingContent')
       .append('div')
-      .attr('class','totalElse')
+      .attr('class','totalMonth')
       .append('text')
       .text(function(){
         console.log(d);
@@ -445,6 +445,7 @@ function assignKeys(d){
           m = 'Nov'
           year = '2019'
         }
+        console.log(thisMonthData.length);
 
         return m+' '+year+', lost items in Shanghai'
 
@@ -454,6 +455,17 @@ function assignKeys(d){
       .attr('font-size',20)
       .attr('font-family','Pangolin')
 
+      d3.select('.scrollingContent')
+      .append('div')
+      .attr('class','totalMonthNum')
+      .append('text')
+      .text(function(){
+        return 'Total Number: '+thisMonthData.length
+      })
+      .attr('x',500)
+      .attr('y',height/2)
+      .attr('font-size',20)
+      .attr('font-family','Pangolin')
 
 
 })
@@ -750,6 +762,69 @@ function assignKeys(d){
             });
 
           }
+          else if(d[0].type == "Jewellery" && d[0].time[5] == '1'&&d[0].time[6] == '1'){
+            d3.select('#hidingMap')
+            .style('display','block')
+
+
+            mapviz.append('path')
+            .attr('d',"M0.61,0C-11.74-7.95-17.85-19.52-15-28.04c0.4-1.18,2.65-7.79,9.25-10.09c3.84-1.34,8.98-1.18,12.72,1.68 c3.31,2.52,4.2,6.13,4.63,7.85C14.76-15.81,2.6-2.18,0.61,0z")
+            .attr('transform',function(){
+              return 'translate('+projection([121.672063,31.148267])[0]+','+projection([121.672063,31.148267])[1]+') scale('+0+')'
+            })
+            .attr('fill',"#4A225D")
+            .style('opacity','0.5')
+            .attr('class','cashSpecialLocation')
+
+
+            d3.select('.scrollingContent')
+            .append('div')
+            .attr('class','total')
+            .append('text')
+            .text('January 2020, Lost Jewellery in Shanghai')
+            .attr('x',500)
+            .attr('y',height/2)
+            .attr('font-size',20)
+            .attr('font-family','Pangolin')
+
+
+            d3.select('.scrollingContent')
+            .append('div')
+            .attr('class','specialJewJan')
+            .append('text')
+            .text('Most Jewellery were lost in Shanghai Disneyland Park. That make sense since people always dress up prettily when going to Disneyland =D')
+            .attr('x',500)
+            .attr('y',height/2)
+            .attr('font-size',30)
+            .attr('font-family','Pangolin')
+
+
+            enterView({
+              selector: '.specialJewJan',
+              enter: function(el) {
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.672063,31.148267])[0]+','+projection([121.672063,31.148267])[1]+') scale('+1+')'
+                })
+              },
+              exit: function(el) {
+                console.log('bye');
+                d3.select('.cashSpecialLocation')
+                .transition().duration(1500)
+                .attr('transform',function(){
+                  return 'translate('+projection([121.672063,31.148267])[0]+','+projection([121.672063,31.148267])[1]+') scale('+0+')'
+                })
+              },
+              progress: function(el, progress) {
+                console.log("the special element's progress is:", progress);
+              },
+              // offset: 0.5, // enter at middle of viewport
+              // once: true, // trigger just once
+            });
+
+          }
+
           else if(d[0].type == "Watches and Glasses" && d[0].time[5] == '0'&&d[0].time[6] == '1'){
             d3.select('#hidingMap')
             .style('display','block')
@@ -2244,6 +2319,26 @@ var exitingDogs = dogelementsForPage.exit();
           .style('opacity',0.5)
           .on('mouseover',function(d,i){
             console.log(d);
+            if(d.type == 'Dogs'){
+              console.log(d.name);
+              mapviz.append('text')
+                .text(function(){
+                  return d.name
+                })
+                .attr('x',d3.mouse(this)[0])
+                .attr('y',d3.mouse(this)[1])
+                .attr('font-family','Permanent Marker')
+                .style("font-size","20px")
+                .attr('id',function(){
+                  return 'name'+d.number
+                })
+
+
+            }
+          })
+          .on('mouseout',function(d,i){
+            d3.select('#name'+d.number).remove()
+
           })
           .attr('class','locations')
 
@@ -2251,15 +2346,15 @@ var exitingDogs = dogelementsForPage.exit();
         })
       })
 
-      window.addEventListener("scroll",function(){
-        var scroll = window.scrollY;
-        // console.log(scroll);
-
-        // mapviz.selectAll('.provinces')
-        // .attr('transform',function(){
-        //   return 'translate(0,'+scroll+')'
-        // })
-      })
+      // window.addEventListener("scroll",function(){
+      //   var scroll = window.scrollY;
+      //   // console.log(scroll);
+      //
+      //   // mapviz.selectAll('.provinces')
+      //   // .attr('transform',function(){
+      //   //   return 'translate(0,'+scroll+')'
+      //   // })
+      // })
 
 
     })
