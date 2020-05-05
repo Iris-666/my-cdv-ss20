@@ -3,6 +3,8 @@ let height = window.innerHeight;
 let width = window.innerWidth;
 let padding = 50;
 let filteredTypes = [];
+let filteredMonths = [];
+
 let backbt = document.getElementById('backbt');
 let whichCircle;
 let scrollingContent = document.getElementById('scrollingContent')
@@ -316,6 +318,150 @@ viz.append('circle')
     return(-rAxisScale(i))
   })
 
+  viz.selectAll('.monthsText')
+  .style('cursor','pointer')
+  .on('click',function(d){
+    mapviz.style('opacity',1)
+    mapviz.style('pointer-events','auto')
+console.log(d);
+d3.json("shanghai.json").then(function(geoData){
+  d3.json('data_file.json').then(function(lostData){
+    let months = lostData.map(d=>d.time[5]+d.time[6]).filter(onlyUnique);
+    let types = lostData.map(d=>d.type).filter(onlyUnique);
+    for(let i = 0;i<months.length;i++){
+      filteredMonths[i] = lostData.filter(function(d){ return d.time[5]+d.time[6] == months[i] })
+    }
+
+    console.log(filteredMonths);
+
+    let projection = d3.geoEqualEarth()
+    // .translate([width/1.3,height/2])
+    .angle(-10)
+    .fitExtent([[0,0], [width/1.3,height-padding]],geoData);
+
+    let pathMaker = d3.geoPath(projection);
+
+    mapviz.selectAll(".provinces").data(geoData.features).enter()
+    .append("path")
+    .attr("class", "provinces")
+    .attr("d", pathMaker)
+    .attr('fill','transparent')
+    .attr("stroke", "#CAAD5F")
+    .attr("stroke-width", 2)
+    .attr('display','fixed')
+    d3.json('uniqueLonLat.json').then(function(uniqueLonLat){
+
+
+      d3.select('#hidingMap')
+      .style('display','block')
+
+      var thisMonthData
+
+      for(let i=0;i<filteredMonths.length;i++){
+        if(filteredMonths[i][0].time[5]+filteredMonths[i][0].time[6] == d){
+          thisMonthData = filteredMonths[i]
+        }
+      }
+
+console.log(thisMonthData);
+
+function assignKeys(d){
+  return d.number
+}
+
+      let elementsForPage = mapviz.selectAll(".locations").data(thisMonthData,assignKeys);
+      let enteringElements = elementsForPage.enter();
+      let exitingElements = elementsForPage.exit();
+
+      exitingElements.remove()
+
+      enteringElements
+      .append('circle')
+      .attr('cx',function(d,i){
+        // console.log(d.location);
+        let correspondingDatapoint = uniqueLonLat.find(function(datapoint){
+          // console.log(d);
+          if(datapoint.location == d.location){
+            return true;
+          }else{
+            return false
+          }
+        })
+
+        lon = correspondingDatapoint.lonlat.split(',')[0];
+        lat = correspondingDatapoint.lonlat.split(',')[1];
+        return projection([lon, lat])[0]
+      })
+      .attr('cy',function(d,i){
+        // console.log(d.location);
+        let correspondingDatapoint = uniqueLonLat.find(function(datapoint){
+          // console.log(datapoint);
+          if(datapoint.location == d.location){
+            return true;
+          }else{
+            return false
+          }
+        })
+        lon = correspondingDatapoint.lonlat.split(',')[0];
+        lat = correspondingDatapoint.lonlat.split(',')[1];
+        return projection([lon, lat])[1]
+
+      })
+      .attr('r',10)
+      .attr('fill',"#AB3B3A")
+      .style('opacity',0.5)
+      .on('mouseover',function(d,i){
+        console.log(d);
+      })
+      .attr('class','locations')
+
+      d3.select('.scrollingContent')
+      .append('div')
+      .attr('class','totalElse')
+      .append('text')
+      .text(function(){
+        console.log(d);
+        if(d == '04'){
+          m = 'Apr'
+          year = '2020'
+        }
+        if(d == '03'){
+          m = 'Mar'
+          year = '2020'
+        }
+        if(d == '02'){
+          m = 'Feb'
+          year = '2020'
+        }
+        if(d == '01'){
+          m = 'Jan'
+          year = '2020'
+        }
+        if(d == '12'){
+          m = 'Dec'
+          year = '2019'
+        }
+        if(d == '11'){
+          m = 'Nov'
+          year = '2019'
+        }
+
+        return m+' '+year+', lost items in Shanghai'
+
+      })
+      .attr('x',500)
+      .attr('y',height/2)
+      .attr('font-size',20)
+      .attr('font-family','Pangolin')
+
+
+
+})
+
+})
+})
+  })
+
 
 
   rCircleScale.range([5,60]);
@@ -328,6 +474,8 @@ viz.append('circle')
     mapviz.style('opacity',1)
     mapviz.style('pointer-events','auto')
     whichCircle = d;
+    console.log(whichCircle);
+
     d3.json("shanghai.json").then(function(geoData){
       d3.json('data_file.json').then(function(lostData){
 
