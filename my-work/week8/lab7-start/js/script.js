@@ -433,6 +433,7 @@ exitingElements.select('rect')
   })
 
   exitingElements.transition().delay(2000).remove();
+
   elementsForPage.select("rect")
  .transition()
  .delay(1500)

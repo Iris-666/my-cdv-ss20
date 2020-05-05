@@ -1792,7 +1792,216 @@ console.log(d);
 
 
         }
+        else if(d[0].type == 'Dogs'){
+          d3.select('#hidingMap')
+          .style('display','block')
 
+          // console.log(d);
+          let breeds = d.map(d=>d.breed).filter(onlyUnique);
+          console.log(breeds);
+
+          d3.select('.scrollingContent')
+          .append('div')
+          .attr('class','totalElse')
+          .append('text')
+          .text(function(){
+            // console.log(d);
+            var month = d[0].time[5]+d[0].time[6]
+            if(month == '04'){
+              m = 'Apr'
+            }
+            if(month == '03'){
+              m = 'Mar'
+            }
+            if(month == '02'){
+              m = 'Feb'
+            }
+            if(month == '01'){
+              m = 'Jan'
+            }
+            if(month == '12'){
+              m = 'Dec'
+            }
+            if(month == '11'){
+              m = 'Nov'
+            }
+            var year = d[0].time.slice(0,4);
+            // console.log(year);
+            return m+' '+year+', lost dogs in Shanghai'
+
+          })
+          .attr('x',500)
+          .attr('y',height/2)
+          .attr('font-size',20)
+          .attr('font-family','Pangolin')
+
+
+
+          var scrollingViz = d3.select(".scrollingContent")
+
+          scrollingViz.selectAll('.specialDogs').data(breeds).enter()
+          .append('div')
+          .attr('class',function(d, i){
+            // console.log(i);
+            return 'specialDogs'
+          })
+          .attr('id',function(d, i){
+            return d ;
+          })
+          .append('text')
+          .text(function(d){
+            // console.log(d);
+            return d;
+          })
+          .attr('x',500)
+          .attr('y',height/2)
+          .attr('font-size',30)
+          .attr('font-family','Pangolin')
+
+
+          enterView({
+            selector: '.specialDogs',
+            enter: function(el) {
+              // console.log(d);
+              console.log(el.id);
+              var thisDog = []
+              for(let i = 0;i<d.length;i++){
+                if(d[i].breed==el.id){
+                  // console.log('yes');
+                  thisDog.push(d[i])
+                  console.log(thisDog);
+                }
+              }
+              let correspondingDatapoint = []
+              for(let i=0;i<thisDog.length;i++){
+
+             correspondingDatapoint[i] = uniqueLonLat.find(function(datapoint){
+                // console.log(thisDog);
+                if(datapoint.location == thisDog[i].location){
+                  return true;
+                }else{
+                  return false
+                }
+              })
+            }
+              console.log(correspondingDatapoint);
+
+              function assignKeys(){
+                return thisDog.number;
+              }
+
+var dogelementsForPage = mapviz.selectAll('.cashSpecialLocation').data(correspondingDatapoint,assignKeys)
+// var enteringDogs = dogelementsForPage.enter();
+var exitingDogs = dogelementsForPage.exit();
+
+            // exitingDogs
+            //   .transition().duration(800)
+            //   .attr('transform',function(d){
+            //     lon = d.lonlat.split(',')[0];
+            //     lat = d.lonlat.split(',')[1];
+            //
+            //     return 'translate('+projection([lon,lat])[0]+','+projection([lon,lat])[1]+') scale('+0+')'
+            //   })
+
+              exitingDogs
+              .remove();
+
+
+              dogelementsForPage.enter()
+              .append('path')
+              // .transition().delay(1100)
+              .attr('d',"M0.61,0C-11.74-7.95-17.85-19.52-15-28.04c0.4-1.18,2.65-7.79,9.25-10.09c3.84-1.34,8.98-1.18,12.72,1.68 c3.31,2.52,4.2,6.13,4.63,7.85C14.76-15.81,2.6-2.18,0.61,0z")
+              .attr('transform',function(d){
+                console.log(d);
+                lon = d.lonlat.split(',')[0];
+                lat = d.lonlat.split(',')[1];
+
+                return 'translate('+projection([lon,lat])[0]+','+projection([lon,lat])[1]+') scale('+0+')'
+              })
+              .attr('fill',"#4A225D")
+              .style('opacity','0.5')
+              .attr('class','cashSpecialLocation')
+
+
+              d3.selectAll('.cashSpecialLocation')
+              .transition().delay(100).duration(500)
+              .attr('transform',function(d){
+                lon = d.lonlat.split(',')[0];
+                lat = d.lonlat.split(',')[1];
+
+                return 'translate('+projection([lon,lat])[0]+','+projection([lon,lat])[1]+') scale('+1+')'
+              })
+
+
+            },
+            exit: function(el) {
+              console.log('bye');
+              var thisDog = []
+              for(let i = 0;i<d.length;i++){
+                if(d[i].breed==el.id){
+                  // console.log('yes');
+                  thisDog.push(d[i])
+                  console.log(thisDog);
+                }
+              }
+              let correspondingDatapoint = []
+              for(let i=0;i<thisDog.length;i++){
+
+             correspondingDatapoint[i] = uniqueLonLat.find(function(datapoint){
+                // console.log(thisDog);
+                if(datapoint.location == thisDog[i].location){
+                  return true;
+                }else{
+                  return false
+                }
+              })
+            }
+              console.log(correspondingDatapoint);
+
+              function assignKeys(){
+                return thisDog.number;
+              }
+
+var dogelementsForPage = mapviz.selectAll('.cashSpecialLocation').data(correspondingDatapoint,assignKeys)
+// var enteringDogs = dogelementsForPage.enter();
+var exitingDogs = dogelementsForPage.exit();
+
+
+              exitingDogs
+              .remove();
+
+
+              dogelementsForPage.enter()
+              .append('path')
+              // .transition().delay(1100)
+              .attr('d',"M0.61,0C-11.74-7.95-17.85-19.52-15-28.04c0.4-1.18,2.65-7.79,9.25-10.09c3.84-1.34,8.98-1.18,12.72,1.68 c3.31,2.52,4.2,6.13,4.63,7.85C14.76-15.81,2.6-2.18,0.61,0z")
+              .attr('transform',function(d){
+                console.log(d);
+                lon = d.lonlat.split(',')[0];
+                lat = d.lonlat.split(',')[1];
+
+                return 'translate('+projection([lon,lat])[0]+','+projection([lon,lat])[1]+') scale('+0+')'
+              })
+              .attr('fill',"#4A225D")
+              .style('opacity','0.5')
+              .attr('class','cashSpecialLocation')
+
+
+              d3.selectAll('.cashSpecialLocation')
+              .transition().delay(100).duration(500)
+              .attr('transform',function(d){
+                lon = d.lonlat.split(',')[0];
+                lat = d.lonlat.split(',')[1];
+
+                return 'translate('+projection([lon,lat])[0]+','+projection([lon,lat])[1]+') scale('+1+')'
+              })
+
+            },
+            offset: 0.5// enter at middle of viewport
+
+          });
+
+        }
           else{
             d3.select('#hidingMap')
             .style('display','block')
