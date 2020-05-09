@@ -2899,6 +2899,226 @@ viz.selectAll('.typesText')
                 d3.select('.'+thisDogID)
                   .style('opacity',0.5)
 
+                  var prevDogId;
+                  for(let i=0;i<breeds.length;i++){
+                    if(breeds[i] == el.id){
+                      prevDogId = breeds[i-1]
+                    }
+                  }
+
+                  if(prevDogId != null){
+                  for(let i=0;i<prevDogId.length;i++){
+                    // console.log(el.id[i]);
+                    if(prevDogId[i] == ' '){
+                      prevDogId = prevDogId.slice(0, i)
+                      break;
+                    }
+                  }
+                  d3.select('.'+prevDogId)
+                    .style('opacity',1)
+                }
+
+
+
+                for(let i = 0;i<d.length;i++){
+                  if(d[i].breed==el.id){
+                    // console.log('yes');
+                    thisDog.push(d[i-1])
+                    console.log(thisDog);
+                  }
+
+
+                }
+                let correspondingDatapoint = []
+                for(let i=0;i<thisDog.length;i++){
+
+                  correspondingDatapoint[i] = uniqueLonLat.find(function(datapoint){
+                    // console.log(thisDog);
+                    if(thisDog[0] != null && datapoint != null){
+                    if(datapoint.location == thisDog[i].location){
+                      return true;
+                    }else{
+                      return false
+                    }
+                  }
+                  })
+                }
+                console.log(correspondingDatapoint);
+
+                function assignKeys(){
+                  return thisDog.number;
+                }
+
+                var dogelementsForPage = mapviz.selectAll('.cashSpecialLocation').data(correspondingDatapoint,assignKeys)
+                // var enteringDogs = dogelementsForPage.enter();
+                var exitingDogs = dogelementsForPage.exit();
+
+
+                exitingDogs
+                .remove();
+
+
+                dogelementsForPage.enter()
+                .append('path')
+                // .transition().delay(1100)
+                .attr('d',"M0.61,0C-11.74-7.95-17.85-19.52-15-28.04c0.4-1.18,2.65-7.79,9.25-10.09c3.84-1.34,8.98-1.18,12.72,1.68 c3.31,2.52,4.2,6.13,4.63,7.85C14.76-15.81,2.6-2.18,0.61,0z")
+                .attr('transform',function(d){
+                  console.log(d);
+                  if(d != null){
+                  lon = d.lonlat.split(',')[0];
+                  lat = d.lonlat.split(',')[1];
+
+                  return 'translate('+projection([lon,lat])[0]+','+projection([lon,lat])[1]+') scale('+0+')'
+                }
+                })
+                .attr('fill',pallet[0])
+                .style('opacity','0.5')
+                .attr('class','cashSpecialLocation')
+
+
+                d3.selectAll('.cashSpecialLocation')
+                .transition().delay(100).duration(500)
+                .attr('transform',function(d){
+                  if(d != null){
+                  lon = d.lonlat.split(',')[0];
+                  lat = d.lonlat.split(',')[1];
+
+                  return 'translate('+projection([lon,lat])[0]+','+projection([lon,lat])[1]+') scale('+1+')'
+                }
+                })
+
+              },
+              offset: 0.5// enter at middle of viewport
+
+            });
+            enterView({
+              selector: '.specialDogsLast',
+              enter: function(el) {
+                // console.log(d);
+                console.log(el);
+                var thisDog = []
+                for(let i = 0;i<d.length;i++){
+                  if(d[i].breed==el.id){
+                    // console.log('yes');
+                    thisDog.push(d[i])
+                    console.log(thisDog);
+                  }
+                }
+                var prevDogId;
+                for(let i=0;i<breeds.length;i++){
+                  if(breeds[i] == el.id){
+                    prevDogId = breeds[i-1]
+                  }
+                }
+
+
+                var thisDogID = el.id
+                // console.log(el.id);
+                for(let i=0;i<el.id.length;i++){
+                  // console.log(el.id[i]);
+                  if(el.id[i] == ' '){
+                    thisDogID = el.id.slice(0, i)
+                    break;
+                  }
+                }
+                // console.log(thisDogID);
+                d3.select('.'+thisDogID)
+                  .style('opacity',1)
+
+              if(prevDogId != null){
+              for(let i=0;i<prevDogId.length;i++){
+                // console.log(el.id[i]);
+                if(prevDogId[i] == ' '){
+                  prevDogId = prevDogId.slice(0, i)
+                  break;
+                }
+              }
+              d3.select('.'+prevDogId)
+                .style('opacity',0.5)
+            }
+
+
+
+                let correspondingDatapoint = []
+                for(let i=0;i<thisDog.length;i++){
+
+                  correspondingDatapoint[i] = uniqueLonLat.find(function(datapoint){
+                    // console.log(thisDog);
+                    if(datapoint.location == thisDog[i].location){
+                      return true;
+                    }else{
+                      return false
+                    }
+                  })
+                }
+                console.log(correspondingDatapoint);
+
+                function assignKeys(){
+                  return thisDog.number;
+                }
+
+                var dogelementsForPage = mapviz.selectAll('.cashSpecialLocation').data(correspondingDatapoint,assignKeys)
+                // var enteringDogs = dogelementsForPage.enter();
+                var exitingDogs = dogelementsForPage.exit();
+
+                // exitingDogs
+                //   .transition().duration(800)
+                //   .attr('transform',function(d){
+                //     lon = d.lonlat.split(',')[0];
+                //     lat = d.lonlat.split(',')[1];
+                //
+                //     return 'translate('+projection([lon,lat])[0]+','+projection([lon,lat])[1]+') scale('+0+')'
+                //   })
+
+                exitingDogs
+                .remove();
+
+
+                dogelementsForPage.enter()
+                .append('path')
+                // .transition().delay(1100)
+                .attr('d',"M0.61,0C-11.74-7.95-17.85-19.52-15-28.04c0.4-1.18,2.65-7.79,9.25-10.09c3.84-1.34,8.98-1.18,12.72,1.68 c3.31,2.52,4.2,6.13,4.63,7.85C14.76-15.81,2.6-2.18,0.61,0z")
+                .attr('transform',function(d){
+                  console.log(d);
+                  lon = d.lonlat.split(',')[0];
+                  lat = d.lonlat.split(',')[1];
+
+                  return 'translate('+projection([lon,lat])[0]+','+projection([lon,lat])[1]+') scale('+0+')'
+                })
+                .attr('fill',function(){
+                  return pallet[0]
+                })
+                .style('opacity','0.5')
+                .attr('class','cashSpecialLocation')
+
+
+                d3.selectAll('.cashSpecialLocation')
+                .transition().delay(100).duration(500)
+                .attr('transform',function(d){
+                  lon = d.lonlat.split(',')[0];
+                  lat = d.lonlat.split(',')[1];
+
+                  return 'translate('+projection([lon,lat])[0]+','+projection([lon,lat])[1]+') scale('+1+')'
+                })
+
+
+              },
+              exit: function(el) {
+                console.log('bye');
+                var thisDog = []
+                var thisDogID = el.id
+                // console.log(el.id);
+                for(let i=0;i<el.id.length;i++){
+                  // console.log(el.id[i]);
+                  if(el.id[i] == ' '){
+                    thisDogID = el.id.slice(0, i)
+                    break;
+                  }
+                }
+                // console.log(thisDogID);
+                d3.select('.'+thisDogID)
+                  .style('opacity',0.5)
+
                 for(let i = 0;i<d.length;i++){
                   if(d[i].breed==el.id){
                     // console.log('yes');
@@ -2964,6 +3184,7 @@ viz.selectAll('.typesText')
               offset: 0.5// enter at middle of viewport
 
             });
+
 
           }
           else{
