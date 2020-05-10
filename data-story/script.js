@@ -218,17 +218,27 @@ d3.json("data_file.json").then(function(incomingData){
 viz.append('text')
 .text("What we've lost")
 .attr('x',width/3)
-.attr('y',height/2)
+.attr('y',height/2-height/15)
 .attr('font-size',50)
 .attr('class','title')
 .attr('font-family','Permanent Marker')
 viz.append('text')
 .text("in Shanghai")
 .attr('x',width/3)
-.attr('y',height/2+height/10)
+.attr('y',height/2+height/15)
 .attr('font-size',50)
 .attr('class','title')
 .attr('font-family','Permanent Marker')
+
+viz.append('text')
+.text("Click to Start")
+.attr('x',width/3)
+.attr('y',height/2+height/5)
+.attr('font-size',25)
+.attr('class','title')
+.attr('font-family','Permanent Marker')
+.style('text-decoration','underline')
+
 
 viz.append('line')
 .attr('transform',function(){
@@ -260,6 +270,17 @@ viz.append('circle')
 .on('click',function(){
   d3.selectAll('.title').remove();
   d3.selectAll('.introduction').remove();
+
+  viz.append('text')
+  .transition()
+    .delay(3000)
+    .text('Click the circles to see detailed map')
+    .attr('x',padding)
+    .attr('y',padding)
+    .attr('font-size',20)
+    .attr('font-family','Permanent Marker')
+    .style('text-decoration','underline')
+
 
   d3.select(this)
   .transition()
@@ -429,6 +450,7 @@ viz.selectAll('.typesText')
         .fitExtent([[0,0], [width/1.3,height-padding]],geoData);
 
         let pathMaker = d3.geoPath(projection);
+
 
         mapviz.selectAll(".provinces").data(geoData.features).enter()
         .append("path")
