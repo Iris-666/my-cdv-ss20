@@ -101,12 +101,70 @@ d3.json("data_file.json").then(function(incomingData){
   .attr('r',function(d, i){
     return rCircleScale(d.length)
   })
-  .attr('stroke','transparent')
+  .style('stroke','transparent')
   .style('opacity',0.5)
   .attr('fill',function(d, i){
     return pallet[Math.floor(i/6)]
   })
   .attr('class','circles')
+
+  viz.selectAll('.circless').data(typesAndTimes).enter()
+  .append('circle')
+  .attr('transform',function(d,i){
+    return 'translate('+width/3+','+height/2+')'
+  })
+  .attr('cx',function(d, i){
+    return Math.sin(angleScale(Math.floor(i/6)))*rAxisScale(i%6)
+  })
+  .attr('cy',function(d, i){
+    return Math.cos(angleScale(Math.floor(i/6)))*rAxisScale(i%6)
+  })
+  .attr('r',function(d, i){
+    return rCircleScale(d.length + 10)
+  })
+  .attr('fill','none')
+  .style('stroke',function(d, i){
+    console.log(d);
+    if(d[0].type == 'Dogs' || d[0].type == 'Books'){
+      return pallet[Math.floor(i/6)]
+    }
+    if(d[0].type == "Cash" && d[0].time[6] == '4'){
+      return pallet[Math.floor(i/6)]
+    }
+    if(d[0].type == "Watches and Glasses" && d[0].time[5] == '0'&&d[0].time[6] == '2'){
+      return pallet[Math.floor(i/6)]
+    }
+    if(d[0].type == "Jewellery" && d[0].time[5] == '0'&&d[0].time[6] == '1'){
+      return pallet[Math.floor(i/6)]
+    }
+    if(d[0].type == "Jewellery" && d[0].time[5] == '1'&&d[0].time[6] == '1'){
+      return pallet[Math.floor(i/6)]
+    }
+    if(d[0].type == "Watches and Glasses" && d[0].time[5] == '0'&&d[0].time[6] == '1'){
+      return pallet[Math.floor(i/6)]
+    }
+    if(d[0].type == "Watches and Glasses" && d[0].time[5] == '1'&&d[0].time[6] == '1'){
+      return pallet[Math.floor(i/6)]
+    }
+    if(d[0].type == "Other" && d[0].time[5] == '0'&&d[0].time[6] == '3'){
+      return pallet[Math.floor(i/6)]
+    }
+    if(d[0].type == "Other" && d[0].time[5] == '0'&&d[0].time[6] == '1'){
+      return pallet[Math.floor(i/6)]
+    }
+    if(d[0].type == "Other" && d[0].time[5] == '1'&&d[0].time[6] == '2'){
+      return pallet[Math.floor(i/6)]
+    }
+    if(d[0].type == "Other" && d[0].time[5] == '1'&&d[0].time[6] == '1'){
+      return pallet[Math.floor(i/6)]
+    }
+    if(d[0].type == "Other" && d[0].time[5] == '1'&&d[0].time[6] == '1'){
+      return pallet[Math.floor(i/6)]
+    }
+
+  })
+  .attr('class','circless')
+
 
   viz.selectAll('.typesText').data(types).enter()
   .append('text')
@@ -281,6 +339,25 @@ viz.append('circle')
     .attr('font-family','Permanent Marker')
     .style('text-decoration','underline')
 
+    viz.append('text')
+    .transition()
+      .delay(3000)
+      .text('Check the circles with halo for some')
+      .attr('x',padding)
+      .attr('y',padding + 40)
+      .attr('font-size',20)
+      .attr('font-family','Permanent Marker')
+      .style('text-decoration','underline')
+
+      viz.append('text')
+      .transition()
+        .delay(3000)
+        .text('interesting stories!')
+        .attr('x',padding)
+        .attr('y',padding + 70)
+        .attr('font-size',20)
+        .attr('font-family','Permanent Marker')
+        .style('text-decoration','underline')
 
   d3.select(this)
   .transition()
@@ -3449,6 +3526,20 @@ viz.selectAll('.typesText')
   .attr('fill',function(d, i){
     return pallet[Math.floor(i/6)]
   })
+
+  viz.selectAll('.circless')
+  .transition()
+  .duration(2000)
+  .attr('cx',function(d, i){
+    return Math.sin(angleScale(Math.floor(i/6)))*rAxisScale(i%6)
+  })
+  .attr('cy',function(d, i){
+    return Math.cos(angleScale(Math.floor(i/6)))*rAxisScale(i%6)
+  })
+  .attr('r',function(d, i){
+    return rCircleScale(d.length + 10)
+  })
+
   viz.selectAll('.circles')
   .transition()
   .delay(1000)
@@ -3466,6 +3557,23 @@ viz.selectAll('.typesText')
   .style('opacity',0.5)
   .attr('fill',function(d, i){
     return pallet[Math.floor(i/6)]
+  })
+  .attr('transform',function(d,i){
+    return 'translate('+width/2+','+height/2+')'
+  })
+
+  viz.selectAll('.circless')
+  .transition()
+  .delay(1000)
+  .duration(2000)
+  .attr('cx',function(d, i){
+    return Math.sin(angleScale(Math.floor(i/6)))*rAxisScale(i%6)
+  })
+  .attr('cy',function(d, i){
+    return Math.cos(angleScale(Math.floor(i/6)))*rAxisScale(i%6)
+  })
+  .attr('r',function(d, i){
+    return rCircleScale(d.length + 10)
   })
   .attr('transform',function(d,i){
     return 'translate('+width/2+','+height/2+')'
